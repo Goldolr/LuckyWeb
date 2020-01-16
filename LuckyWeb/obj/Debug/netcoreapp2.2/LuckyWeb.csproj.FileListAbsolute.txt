@@ -23,3 +23,10 @@ E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\_ViewImpo
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\_ViewStart.cshtml.g.cs
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.RazorTargetAssemblyInfo.cache
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.RazorTargetAssemblyInfo.cs
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\bin\Debug\netcoreapp2.2\LuckyWeb.pdb
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\bin\Debug\netcoreapp2.2\LuckyWeb.Views.dll
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\bin\Debug\netcoreapp2.2\LuckyWeb.Views.pdb
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.Views.pdb
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.dll
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.pdb
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.csproj.CopyComplete

@@ -15,7 +15,7 @@ namespace LuckyWeb.Models
         [ForeignKey("FK_UserFormularioEncuesta")]
         public Guid IDuser { get; set; }
         public User FK_UserFormularioEncuesta { get; set; }
-        [ForeignKey("FK_UserFormularioEncuesta")]
+        [ForeignKey("FK_MascotaFormularioEncuesta")]
         public Guid IDmascota { get; set; }
         public Mascota FK_MascotaFormularioEncuesta { get; set; }
     }

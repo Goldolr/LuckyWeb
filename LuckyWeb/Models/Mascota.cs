@@ -20,5 +20,6 @@ namespace LuckyWeb.Models
         [Required]
         public string Esterilizado { get; set; }
         public Boolean Estado { get; set; }
+        public List<FormularioEncuesta> FormularioEncuestas { get; set; }
     }
 }
