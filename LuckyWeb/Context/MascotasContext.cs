@@ -18,5 +18,6 @@ namespace LuckyWeb.Context
         public DbSet<FormularioEncuesta> FormularioEncuestas { get; set; }
         public DbSet<Informe> Informes { get; set; }
         public DbSet<Pregunta> Preguntas { get; set; }
+        public DbSet<LuckyWeb.Models.Prueba> Prueba { get; set; }
     }
 }
