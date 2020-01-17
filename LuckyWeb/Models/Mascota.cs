@@ -19,6 +19,7 @@ namespace LuckyWeb.Models
         public string Raza { get; set; }
         [Required]
         public string Esterilizado { get; set; }
+        [Display(Name ="Adoptado")]
         public Boolean Estado { get; set; }
         public List<FormularioEncuesta> FormularioEncuestas { get; set; }
     }

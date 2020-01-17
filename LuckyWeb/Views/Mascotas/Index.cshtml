@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<LuckyWeb.Models.Mascota>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Mascotas";
 }
 
-<h1>Index</h1>
+<h1 align="center">Mascotas</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-outline-info btn-floating" asp-action="Create">Agregar nueva mascota </a>
 </p>
-<table class="table">
+<table class="table table-dark">
     <thead>
         <tr>
             <th>
@@ -49,9 +49,26 @@
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMascota">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMascota">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMascota">Delete</a>
+                <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IdMascota">Editar</a>
+                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdMascota">Detalles</a>
+
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                    Eliminar
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <h5 style="color:black">Seguro que desea eliminar este registro</h5>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdMascota">Si</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
 }

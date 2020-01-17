@@ -128,6 +128,16 @@ namespace LuckyWeb.Migrations
                     b.ToTable("tbl_Pregunta");
                 });
 
+            modelBuilder.Entity("LuckyWeb.Models.Prueba", b =>
+                {
+                    b.Property<int>("IDprueba")
+                        .ValueGeneratedOnAdd();
+
+                    b.HasKey("IDprueba");
+
+                    b.ToTable("tbl_Prueba");
+                });
+
             modelBuilder.Entity("LuckyWeb.Models.User", b =>
                 {
                     b.Property<Guid>("IdUser")
