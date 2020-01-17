@@ -21,6 +21,7 @@ namespace LuckyWeb.Areas.Identity
                         context.Configuration.GetConnectionString("MascotaDBConnectionString")));
 
                 services.AddDefaultIdentity<LuckyWebUser>()
+                    .AddRoles<IdentityRole>()
                     .AddEntityFrameworkStores<LuckyWebIdentityContext>();
             });
         }

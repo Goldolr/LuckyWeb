@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LuckyWeb.Areas.Identity.Data;
 using LuckyWeb.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -44,7 +46,7 @@ namespace LuckyWeb
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
         {
             if (env.IsDevelopment())
             {
@@ -68,6 +70,34 @@ namespace LuckyWeb
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            //CreateRoles(serviceProvider).Wait();
+            //AddUserToRole(serviceProvider, "Administrador", "admin@hotmail.com").Wait();
+        }
+
+        private async Task CreateRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager =
+           serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            string[] roleNames = { "Administrador", "Usuario","Supervisor" };
+            IdentityResult roleResult;
+            foreach (var roleName in roleNames)
+            {
+                var roleExist = await RoleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    roleResult = await RoleManager.CreateAsync(new
+                   IdentityRole(roleName));
+                }
+            }
+        }
+        private async Task AddUserToRole(IServiceProvider serviceProvider, string role,
+       string email)
+        {
+            var UserManager =
+           serviceProvider.GetRequiredService<UserManager<LuckyWebUser>>();
+            var _user = await UserManager.FindByEmailAsync(email);
+            if (_user != null)
+                await UserManager.AddToRoleAsync(_user, role);
         }
     }
 }
