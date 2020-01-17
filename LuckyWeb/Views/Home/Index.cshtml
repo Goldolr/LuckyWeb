@@ -1,8 +1,62 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Lucky";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<!-- Jumbotron -->
+<div class="card card-image" style="background-image: url(csss/img/perros-banner.jpg);">
+    <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+        <div class="py-5">
+
+            <!-- Content -->
+            <h1 class="card-title h2 my-4 py-2 " style="color:aqua">Clinica veterinaria organización Save Ecuador</h1>
+            <p class="mb-4 pb-2 px-md-5 mx-md-5">
+
+            </p>
+
+
+        </div>
+    </div>
+</div>
+<!-- Jumbotron -->
+<a class="btn peach-gradient" style="color:brown"><i class="fa fa-clone left "></i> Escoge la mascota que mas te guste</a>
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active text-center">
+            <img src="~/csss/img/dg3.jpg">
+            <img src="~/csss/img/dg2.jpg">
+            <img src="~/csss/img/dg4.jpg">
+            <img src="~/csss/img/dg1.jpg">
+        </div>
+        <div class="carousel-item text-center">
+            <img src="~/csss/img/ct4.jpg">
+            <img src="~/csss/img/ct1.jpg">
+            <img src="~/csss/img/ct2.jpg">
+            <img src="~/csss/img/ct3.jpg">
+        </div>
+        <div class="carousel-item text-center">
+            <img src="~/csss/img/ct5.jpg">
+            <img src="~/csss/img/dg5.jpg">
+            <img src="~/csss/img/ct7.jpg">
+            <img src="~/csss/img/dg6.jpg">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+
 </div>
