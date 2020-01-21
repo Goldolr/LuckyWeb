@@ -18,6 +18,7 @@ namespace LuckyWeb.Models
         public string Correo { get; set; }
         [Display(Name = "Contraseña")]
         public string Contrasenia { get; set; }
+        [Display(Name ="Fecha de Nacimiento")]
         public DateTime FechaNacimiento { get; set; }
         public List<FormularioEncuesta> FormularioEncuestas { get; set; }
     }

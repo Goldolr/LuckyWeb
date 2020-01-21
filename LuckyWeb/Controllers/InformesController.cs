@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LuckyWeb.Context;
 using LuckyWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LuckyWeb.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class InformesController : Controller
     {
         private readonly MascotasContext _context;
