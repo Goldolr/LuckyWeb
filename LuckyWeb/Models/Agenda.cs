@@ -12,5 +12,9 @@ namespace LuckyWeb.Models
     {
         [Key]
         public int IDagenda { get; set; }
+        public DateTime FechaAgenda { get; set; }
+        [ForeignKey("FK_UserAgenda")]
+        public Guid IDuser { get; set; }
+        public User FK_UserAgenda { get; set; }
     }
 }

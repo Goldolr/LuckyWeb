@@ -3,15 +3,17 @@ using System;
 using LuckyWeb.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace LuckyWeb.Migrations
 {
     [DbContext(typeof(MascotasContext))]
-    partial class MascotasContextModelSnapshot : ModelSnapshot
+    [Migration("20200121211206_04_FechaAgenda")]
+    partial class _04_FechaAgenda
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,11 +28,7 @@ namespace LuckyWeb.Migrations
 
                     b.Property<DateTime>("FechaAgenda");
 
-                    b.Property<Guid>("IDuser");
-
                     b.HasKey("IDagenda");
-
-                    b.HasIndex("IDuser");
 
                     b.ToTable("tbl_Agenda");
                 });
@@ -164,14 +162,6 @@ namespace LuckyWeb.Migrations
                     b.HasKey("IdUser");
 
                     b.ToTable("tbl_User");
-                });
-
-            modelBuilder.Entity("LuckyWeb.Models.Agenda", b =>
-                {
-                    b.HasOne("LuckyWeb.Models.User", "FK_UserAgenda")
-                        .WithMany()
-                        .HasForeignKey("IDuser")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("LuckyWeb.Models.FormularioEncuesta", b =>

@@ -22,7 +22,8 @@ namespace LuckyWeb.Controllers
         // GET: Agenda
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Agendas.ToListAsync());
+            var mascotasContext = _context.Agendas.Include(a => a.FK_UserAgenda);
+            return View(await mascotasContext.ToListAsync());
         }
 
         // GET: Agenda/Details/5
@@ -34,6 +35,7 @@ namespace LuckyWeb.Controllers
             }
 
             var agenda = await _context.Agendas
+                .Include(a => a.FK_UserAgenda)
                 .FirstOrDefaultAsync(m => m.IDagenda == id);
             if (agenda == null)
             {
@@ -46,6 +48,7 @@ namespace LuckyWeb.Controllers
         // GET: Agenda/Create
         public IActionResult Create()
         {
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IDagenda")] Agenda agenda)
+        public async Task<IActionResult> Create([Bind("IDagenda,FechaAgenda,IDuser")] Agenda agenda)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", agenda.IDuser);
             return View(agenda);
         }
 
@@ -78,6 +82,7 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", agenda.IDuser);
             return View(agenda);
         }
 
@@ -86,7 +91,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IDagenda")] Agenda agenda)
+        public async Task<IActionResult> Edit(int id, [Bind("IDagenda,FechaAgenda,IDuser")] Agenda agenda)
         {
             if (id != agenda.IDagenda)
             {
@@ -113,6 +118,7 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", agenda.IDuser);
             return View(agenda);
         }
 
@@ -125,6 +131,7 @@ namespace LuckyWeb.Controllers
             }
 
             var agenda = await _context.Agendas
+                .Include(a => a.FK_UserAgenda)
                 .FirstOrDefaultAsync(m => m.IDagenda == id);
             if (agenda == null)
             {

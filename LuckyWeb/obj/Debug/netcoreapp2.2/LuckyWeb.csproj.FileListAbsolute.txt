@@ -30,11 +30,6 @@ E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.Views.pdb
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.dll
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.pdb
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\LuckyWeb.csproj.CopyComplete
-E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Create.cshtml.g.cs
-E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Delete.cshtml.g.cs
-E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Details.cshtml.g.cs
-E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Edit.cshtml.g.cs
-E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Index.cshtml.g.cs
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entregas\Create.cshtml.g.cs
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entregas\Delete.cshtml.g.cs
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entregas\Details.cshtml.g.cs
@@ -110,3 +105,8 @@ E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Create.cshtml.g.cs
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Delete.cshtml.g.cs
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Details.cshtml.g.cs
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Edit.cshtml.g.cs
+E:\Proyectos 2.0\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Agenda\Index.cshtml.g.cs
