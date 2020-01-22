@@ -24,11 +24,15 @@ namespace LuckyWeb.Migrations
                     b.Property<int>("IDagenda")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("EntrevistaIDentrevistas");
+
                     b.Property<DateTime>("FechaAgenda");
 
                     b.Property<Guid>("IDuser");
 
                     b.HasKey("IDagenda");
+
+                    b.HasIndex("EntrevistaIDentrevistas");
 
                     b.HasIndex("IDuser");
 
@@ -50,7 +54,17 @@ namespace LuckyWeb.Migrations
                     b.Property<int>("IDentrevistas")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("EstadoEntrevista");
+
+                    b.Property<int>("IDagenda");
+
+                    b.Property<Guid>("IDuser");
+
                     b.HasKey("IDentrevistas");
+
+                    b.HasIndex("IDagenda");
+
+                    b.HasIndex("IDuser");
 
                     b.ToTable("tbl_Entrevista");
                 });
@@ -168,7 +182,24 @@ namespace LuckyWeb.Migrations
 
             modelBuilder.Entity("LuckyWeb.Models.Agenda", b =>
                 {
+                    b.HasOne("LuckyWeb.Models.Entrevista")
+                        .WithMany("Agendas")
+                        .HasForeignKey("EntrevistaIDentrevistas");
+
                     b.HasOne("LuckyWeb.Models.User", "FK_UserAgenda")
+                        .WithMany()
+                        .HasForeignKey("IDuser")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Entrevista", b =>
+                {
+                    b.HasOne("LuckyWeb.Models.Agenda", "FK_AgendaEntrevista")
+                        .WithMany()
+                        .HasForeignKey("IDagenda")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.User", "FK_UserEntrevista")
                         .WithMany()
                         .HasForeignKey("IDuser")
                         .OnDelete(DeleteBehavior.Cascade);
