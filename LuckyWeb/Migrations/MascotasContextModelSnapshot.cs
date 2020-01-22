@@ -60,11 +60,15 @@ namespace LuckyWeb.Migrations
 
                     b.Property<Guid>("IDuser");
 
+                    b.Property<int?>("PruebaIDprueba");
+
                     b.HasKey("IDentrevistas");
 
                     b.HasIndex("IDagenda");
 
                     b.HasIndex("IDuser");
+
+                    b.HasIndex("PruebaIDprueba");
 
                     b.ToTable("tbl_Entrevista");
                 });
@@ -157,7 +161,13 @@ namespace LuckyWeb.Migrations
                     b.Property<int>("IDprueba")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<bool>("EstadoPrueba");
+
+                    b.Property<int>("IDentrevista");
+
                     b.HasKey("IDprueba");
+
+                    b.HasIndex("IDentrevista");
 
                     b.ToTable("tbl_Prueba");
                 });
@@ -207,6 +217,10 @@ namespace LuckyWeb.Migrations
                         .WithMany()
                         .HasForeignKey("IDuser")
                         .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Prueba")
+                        .WithMany("Entrevistas")
+                        .HasForeignKey("PruebaIDprueba");
                 });
 
             modelBuilder.Entity("LuckyWeb.Models.FormularioEncuesta", b =>
@@ -224,6 +238,14 @@ namespace LuckyWeb.Migrations
                     b.HasOne("LuckyWeb.Models.User", "FK_UserFormularioEncuesta")
                         .WithMany("FormularioEncuestas")
                         .HasForeignKey("IDuser")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Prueba", b =>
+                {
+                    b.HasOne("LuckyWeb.Models.Entrevista", "FK_EntrevistaPrueba")
+                        .WithMany()
+                        .HasForeignKey("IDentrevista")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
