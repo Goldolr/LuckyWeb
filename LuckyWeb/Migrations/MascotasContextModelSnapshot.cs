@@ -44,7 +44,15 @@ namespace LuckyWeb.Migrations
                     b.Property<int>("IDentrega")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Detalle");
+
+                    b.Property<bool>("Estado");
+
+                    b.Property<int>("IDinforme");
+
                     b.HasKey("IDentrega");
+
+                    b.HasIndex("IDinforme");
 
                     b.ToTable("tbl_Entrega");
                 });
@@ -100,7 +108,13 @@ namespace LuckyWeb.Migrations
                     b.Property<int>("IDinforme")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Detalle");
+
+                    b.Property<int>("IDprueba");
+
                     b.HasKey("IDinforme");
+
+                    b.HasIndex("IDprueba");
 
                     b.ToTable("tbl_Informe");
                 });
@@ -206,6 +220,14 @@ namespace LuckyWeb.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("LuckyWeb.Models.Entrega", b =>
+                {
+                    b.HasOne("LuckyWeb.Models.Informe", "FK_InformeEntrega")
+                        .WithMany()
+                        .HasForeignKey("IDinforme")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("LuckyWeb.Models.Entrevista", b =>
                 {
                     b.HasOne("LuckyWeb.Models.Agenda", "FK_AgendaEntrevista")
@@ -238,6 +260,14 @@ namespace LuckyWeb.Migrations
                     b.HasOne("LuckyWeb.Models.User", "FK_UserFormularioEncuesta")
                         .WithMany("FormularioEncuestas")
                         .HasForeignKey("IDuser")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Informe", b =>
+                {
+                    b.HasOne("LuckyWeb.Models.Prueba", "FK_PruebaInforme")
+                        .WithMany()
+                        .HasForeignKey("IDprueba")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

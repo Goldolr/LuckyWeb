@@ -12,5 +12,9 @@ namespace LuckyWeb.Models
     {
         [Key]
         public int IDinforme { get; set; }
+        public string Detalle { get; set; }
+        [ForeignKey("FK_PruebaInforme")]
+        public int IDprueba { get; set; }
+        public Prueba FK_PruebaInforme { get; set; }
     }
 }
