@@ -20,5 +20,8 @@ namespace LuckyWeb.Models
         public Guid IDmascota { get; set; }
         [Display(Name = "Mascota")]
         public Mascota FK_MascotaFormularioEncuesta { get; set; }
+        [ForeignKey("FK_PreguntaFormularioEncuesta")]
+        public int IDpregunta { get; set; }
+        public Pregunta FK_PreguntaFormularioEncuesta { get; set; }
     }
 }
