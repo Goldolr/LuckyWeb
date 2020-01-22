@@ -22,7 +22,7 @@ namespace LuckyWeb.Controllers
         // GET: FormularioEncuestas
         public async Task<IActionResult> Index()
         {
-            var mascotasContext = _context.FormularioEncuestas.Include(f => f.FK_MascotaFormularioEncuesta).Include(f => f.FK_UserFormularioEncuesta);
+            var mascotasContext = _context.FormularioEncuestas.Include(f => f.FK_MascotaFormularioEncuesta).Include(f => f.FK_PreguntaFormularioEncuesta).Include(f => f.FK_UserFormularioEncuesta);
             return View(await mascotasContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace LuckyWeb.Controllers
 
             var formularioEncuesta = await _context.FormularioEncuestas
                 .Include(f => f.FK_MascotaFormularioEncuesta)
+                .Include(f => f.FK_PreguntaFormularioEncuesta)
                 .Include(f => f.FK_UserFormularioEncuesta)
                 .FirstOrDefaultAsync(m => m.IDformularioEncuesta == id);
             if (formularioEncuesta == null)
@@ -49,8 +50,9 @@ namespace LuckyWeb.Controllers
         // GET: FormularioEncuestas/Create
         public IActionResult Create()
         {
-            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota");
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre");
+            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado");
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas");
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser");
             return View();
         }
 
@@ -59,7 +61,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IDformularioEncuesta,IDuser,IDmascota")] FormularioEncuesta formularioEncuesta)
+        public async Task<IActionResult> Create([Bind("IDformularioEncuesta,IDuser,IDmascota,IDpregunta")] FormularioEncuesta formularioEncuesta)
         {
             if (ModelState.IsValid)
             {
@@ -67,8 +69,9 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
+            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado", formularioEncuesta.IDmascota);
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpregunta);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 
@@ -85,8 +88,9 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
+            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado", formularioEncuesta.IDmascota);
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpregunta);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 
@@ -95,7 +99,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IDformularioEncuesta,IDuser,IDmascota")] FormularioEncuesta formularioEncuesta)
+        public async Task<IActionResult> Edit(int id, [Bind("IDformularioEncuesta,IDuser,IDmascota,IDpregunta")] FormularioEncuesta formularioEncuesta)
         {
             if (id != formularioEncuesta.IDformularioEncuesta)
             {
@@ -123,6 +127,7 @@ namespace LuckyWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado", formularioEncuesta.IDmascota);
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpregunta);
             ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
@@ -137,6 +142,7 @@ namespace LuckyWeb.Controllers
 
             var formularioEncuesta = await _context.FormularioEncuestas
                 .Include(f => f.FK_MascotaFormularioEncuesta)
+                .Include(f => f.FK_PreguntaFormularioEncuesta)
                 .Include(f => f.FK_UserFormularioEncuesta)
                 .FirstOrDefaultAsync(m => m.IDformularioEncuesta == id);
             if (formularioEncuesta == null)

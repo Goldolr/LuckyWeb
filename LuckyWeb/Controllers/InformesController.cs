@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LuckyWeb.Context;
 using LuckyWeb.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace LuckyWeb.Controllers
 {
-    [Authorize(Roles = "Administrador")]
     public class InformesController : Controller
     {
         private readonly MascotasContext _context;
@@ -24,7 +22,8 @@ namespace LuckyWeb.Controllers
         // GET: Informes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Informes.ToListAsync());
+            var mascotasContext = _context.Informes.Include(i => i.FK_PruebaInforme);
+            return View(await mascotasContext.ToListAsync());
         }
 
         // GET: Informes/Details/5
@@ -36,6 +35,7 @@ namespace LuckyWeb.Controllers
             }
 
             var informe = await _context.Informes
+                .Include(i => i.FK_PruebaInforme)
                 .FirstOrDefaultAsync(m => m.IDinforme == id);
             if (informe == null)
             {
@@ -48,6 +48,7 @@ namespace LuckyWeb.Controllers
         // GET: Informes/Create
         public IActionResult Create()
         {
+            ViewData["IDprueba"] = new SelectList(_context.Prueba, "IDprueba", "IDprueba");
             return View();
         }
 
@@ -56,7 +57,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IDinforme")] Informe informe)
+        public async Task<IActionResult> Create([Bind("IDinforme,Detalle,IDprueba")] Informe informe)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +65,7 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDprueba"] = new SelectList(_context.Prueba, "IDprueba", "IDprueba", informe.IDprueba);
             return View(informe);
         }
 
@@ -80,6 +82,7 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
+            ViewData["IDprueba"] = new SelectList(_context.Prueba, "IDprueba", "IDprueba", informe.IDprueba);
             return View(informe);
         }
 
@@ -88,7 +91,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IDinforme")] Informe informe)
+        public async Task<IActionResult> Edit(int id, [Bind("IDinforme,Detalle,IDprueba")] Informe informe)
         {
             if (id != informe.IDinforme)
             {
@@ -115,6 +118,7 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDprueba"] = new SelectList(_context.Prueba, "IDprueba", "IDprueba", informe.IDprueba);
             return View(informe);
         }
 
@@ -127,6 +131,7 @@ namespace LuckyWeb.Controllers
             }
 
             var informe = await _context.Informes
+                .Include(i => i.FK_PruebaInforme)
                 .FirstOrDefaultAsync(m => m.IDinforme == id);
             if (informe == null)
             {

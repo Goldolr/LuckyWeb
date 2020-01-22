@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LuckyWeb.Context;
 using LuckyWeb.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace LuckyWeb.Controllers
 {
-    [Authorize(Roles = "Administrador")]
     public class EntrevistasController : Controller
     {
         private readonly MascotasContext _context;
@@ -24,7 +22,8 @@ namespace LuckyWeb.Controllers
         // GET: Entrevistas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Entrevistas.ToListAsync());
+            var mascotasContext = _context.Entrevistas.Include(e => e.FK_AgendaEntrevista).Include(e => e.FK_UserEntrevista);
+            return View(await mascotasContext.ToListAsync());
         }
 
         // GET: Entrevistas/Details/5
@@ -36,6 +35,8 @@ namespace LuckyWeb.Controllers
             }
 
             var entrevista = await _context.Entrevistas
+                .Include(e => e.FK_AgendaEntrevista)
+                .Include(e => e.FK_UserEntrevista)
                 .FirstOrDefaultAsync(m => m.IDentrevistas == id);
             if (entrevista == null)
             {
@@ -48,6 +49,8 @@ namespace LuckyWeb.Controllers
         // GET: Entrevistas/Create
         public IActionResult Create()
         {
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda");
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser");
             return View();
         }
 
@@ -56,7 +59,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IDentrevistas")] Entrevista entrevista)
+        public async Task<IActionResult> Create([Bind("IDentrevistas,IDagenda,IDuser,EstadoEntrevista")] Entrevista entrevista)
         {
             if (ModelState.IsValid)
             {
@@ -64,6 +67,8 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda", entrevista.IDagenda);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", entrevista.IDuser);
             return View(entrevista);
         }
 
@@ -80,6 +85,8 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda", entrevista.IDagenda);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", entrevista.IDuser);
             return View(entrevista);
         }
 
@@ -88,7 +95,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IDentrevistas")] Entrevista entrevista)
+        public async Task<IActionResult> Edit(int id, [Bind("IDentrevistas,IDagenda,IDuser,EstadoEntrevista")] Entrevista entrevista)
         {
             if (id != entrevista.IDentrevistas)
             {
@@ -115,6 +122,8 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda", entrevista.IDagenda);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", entrevista.IDuser);
             return View(entrevista);
         }
 
@@ -127,6 +136,8 @@ namespace LuckyWeb.Controllers
             }
 
             var entrevista = await _context.Entrevistas
+                .Include(e => e.FK_AgendaEntrevista)
+                .Include(e => e.FK_UserEntrevista)
                 .FirstOrDefaultAsync(m => m.IDentrevistas == id);
             if (entrevista == null)
             {

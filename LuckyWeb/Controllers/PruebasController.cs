@@ -22,7 +22,8 @@ namespace LuckyWeb.Controllers
         // GET: Pruebas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Prueba.ToListAsync());
+            var mascotasContext = _context.Prueba.Include(p => p.FK_EntrevistaPrueba);
+            return View(await mascotasContext.ToListAsync());
         }
 
         // GET: Pruebas/Details/5
@@ -34,6 +35,7 @@ namespace LuckyWeb.Controllers
             }
 
             var prueba = await _context.Prueba
+                .Include(p => p.FK_EntrevistaPrueba)
                 .FirstOrDefaultAsync(m => m.IDprueba == id);
             if (prueba == null)
             {
@@ -46,6 +48,7 @@ namespace LuckyWeb.Controllers
         // GET: Pruebas/Create
         public IActionResult Create()
         {
+            ViewData["IDentrevista"] = new SelectList(_context.Entrevistas, "IDentrevistas", "IDentrevistas");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IDprueba")] Prueba prueba)
+        public async Task<IActionResult> Create([Bind("IDprueba,EstadoPrueba,IDentrevista")] Prueba prueba)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDentrevista"] = new SelectList(_context.Entrevistas, "IDentrevistas", "IDentrevistas", prueba.IDentrevista);
             return View(prueba);
         }
 
@@ -78,6 +82,7 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
+            ViewData["IDentrevista"] = new SelectList(_context.Entrevistas, "IDentrevistas", "IDentrevistas", prueba.IDentrevista);
             return View(prueba);
         }
 
@@ -86,7 +91,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IDprueba")] Prueba prueba)
+        public async Task<IActionResult> Edit(int id, [Bind("IDprueba,EstadoPrueba,IDentrevista")] Prueba prueba)
         {
             if (id != prueba.IDprueba)
             {
@@ -113,6 +118,7 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDentrevista"] = new SelectList(_context.Entrevistas, "IDentrevistas", "IDentrevistas", prueba.IDentrevista);
             return View(prueba);
         }
 
@@ -125,6 +131,7 @@ namespace LuckyWeb.Controllers
             }
 
             var prueba = await _context.Prueba
+                .Include(p => p.FK_EntrevistaPrueba)
                 .FirstOrDefaultAsync(m => m.IDprueba == id);
             if (prueba == null)
             {
