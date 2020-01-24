@@ -4,30 +4,38 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<body style="background-image:url(https://image.freepik.com/vector-gratis/perro-gato-pug-hueso-espinas-pescado-huellas-pata-fondo-vector-patron-transparente-bola_7688-21.jpg);">
+</body>
+<div class="card" style="margin:auto;width:600px;background-color:antiquewhite">
+    <h1 class="card-header info-color white-text text-center py-4" style="background-color:burlywood">
+        <strong>Crear Mascota</strong>
+    </h1>
 
-<h4>Mascota</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <hr />
+        @*<div class="row">*@
+        @*<div class="col-md-4">*@
+        <!-- Form -->
+        <form asp-action="Create" class="text-center" style="color: #757575;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="NombreMascota" class="control-label"></label>
                 <input asp-for="NombreMascota" class="form-control" />
                 <span asp-validation-for="NombreMascota" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="EdadMascota" class="control-label"></label>
                 <input asp-for="EdadMascota" class="form-control" />
                 <span asp-validation-for="EdadMascota" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Raza" class="control-label"></label>
                 <input asp-for="Raza" class="form-control" />
                 <span asp-validation-for="Raza" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Esterilizado" class="control-label"></label>
                 <input asp-for="Esterilizado" class="form-control" />
                 <span asp-validation-for="Esterilizado" class="text-danger"></span>
@@ -37,15 +45,15 @@
                     <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
                 </label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group" style="margin:auto;width:300px;">
+                <input type="submit" value="Create" class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0" />
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+        <div>
+            <a asp-action="Index">Atrás</a>
+        </div>
+    </div>
 </div>
 
 @section Scripts {

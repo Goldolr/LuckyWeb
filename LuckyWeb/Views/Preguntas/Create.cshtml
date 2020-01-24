@@ -4,73 +4,82 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<body style="background-image:url(https://image.freepik.com/vector-gratis/perro-gato-pug-hueso-espinas-pescado-huellas-pata-fondo-vector-patron-transparente-bola_7688-21.jpg);">
+</body>
+<div class="card" style="margin:auto;width:600px;background-color:antiquewhite">
+    <h1 class="card-header info-color white-text text-center py-4" style="background-color:burlywood">
+        <strong>Crear Pregunta</strong>
+    </h1>
 
-<h4>Pregunta</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0">
+
+        <hr />
+        @*<div class="row">*@
+        @*<div class="col-md-4">*@
+        <!-- Form -->
+        <form asp-action="Create" class="text-center" style="color: #757575;">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta1" class="control-label"></label>
                 <input asp-for="Pregunta1" class="form-control" />
                 <span asp-validation-for="Pregunta1" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta2" class="control-label"></label>
                 <input asp-for="Pregunta2" class="form-control" />
                 <span asp-validation-for="Pregunta2" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta3" class="control-label"></label>
                 <input asp-for="Pregunta3" class="form-control" />
                 <span asp-validation-for="Pregunta3" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta4" class="control-label"></label>
                 <input asp-for="Pregunta4" class="form-control" />
                 <span asp-validation-for="Pregunta4" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta5" class="control-label"></label>
                 <input asp-for="Pregunta5" class="form-control" />
                 <span asp-validation-for="Pregunta5" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta6" class="control-label"></label>
                 <input asp-for="Pregunta6" class="form-control" />
                 <span asp-validation-for="Pregunta6" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta7" class="control-label"></label>
                 <input asp-for="Pregunta7" class="form-control" />
                 <span asp-validation-for="Pregunta7" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta8" class="control-label"></label>
                 <input asp-for="Pregunta8" class="form-control" />
                 <span asp-validation-for="Pregunta8" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta9" class="control-label"></label>
                 <input asp-for="Pregunta9" class="form-control" />
                 <span asp-validation-for="Pregunta9" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="margin:auto;width:300px;">
                 <label asp-for="Pregunta10" class="control-label"></label>
                 <input asp-for="Pregunta10" class="form-control" />
                 <span asp-validation-for="Pregunta10" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group" style="margin:auto;width:300px;">
+                <input type="submit" value="Create" class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0" />
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+        <div>
+            <a asp-action="Index">Atrás</a>
+        </div>
+
+    </div>
 </div>
 
 @section Scripts {
