@@ -4,45 +4,54 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<body style="background-color:#6B7A8F">
+    <div class="card">
+        <div id="table" class="table-editable">
+            <h2 class="card-header text-center font-weight-bold text-uppercase py-4">Entregas</h2>
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Estado)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Detalle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FK_InformeEntrega)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Estado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detalle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FK_InformeEntrega.Detalle)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IDentrega">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IDentrega">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IDentrega">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+            <p>
+                <a class="btn btn-danger btn-rounded btn-sm my-0" asp-action="Create">Create New</a>
+            </p>
+            <div>
+                <table class="table  table-bordered table-responsive-md table-striped text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Estado)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Detalle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FK_InformeEntrega)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Estado)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Detalle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FK_InformeEntrega.Detalle)
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IDentrega">Editar</a>
+                                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IDentrega">Detalles</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IDentrega">Eliminar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>

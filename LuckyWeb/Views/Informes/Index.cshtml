@@ -5,38 +5,46 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Detalle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FK_PruebaInforme)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detalle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FK_PruebaInforme.FK_EntrevistaPrueba.EstadoEntrevista)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IDinforme">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IDinforme">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IDinforme">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<body style="background-color:#6B7A8F">
+    <div class="card">
+        <div id="table" class="table-editable">
+            <h2 class="card-header text-center font-weight-bold text-uppercase py-4">Acepaciones</h2>
+            <p>
+                <a class="btn btn-danger btn-rounded btn-sm my-0" asp-action="Create">Pendientes</a>
+            </p>
+            <div>
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Detalle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FK_PruebaInforme)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Detalle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FK_PruebaInforme.FK_EntrevistaPrueba.EstadoEntrevista)
+                                </td>
+                                <td>
+                                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IDinforme">Editar</a>
+                                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IDinforme">Detalles</a>
+                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IDinforme">Eliminar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
