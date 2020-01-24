@@ -29,10 +29,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FK_AgendaEntrevista.IDagenda)
+                @Html.DisplayFor(modelItem => item.FK_AgendaEntrevista.FechaAgenda)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.FK_UserEntrevista.IdUser)
+                @Html.DisplayFor(modelItem => item.FK_UserEntrevista.Nombre)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.EstadoEntrevista)

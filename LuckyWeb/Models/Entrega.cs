@@ -13,9 +13,12 @@ namespace LuckyWeb.Models
         [Key]
         public int IDentrega { get; set; }
         public Boolean Estado { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string Detalle { get; set; }
         [ForeignKey("FK_InformeEntrega")]
+        [Display(Name ="Informe")]
         public int IDinforme { get; set; }
+        [Display(Name = "Informe")]
         public Informe FK_InformeEntrega { get; set; }
 
     }

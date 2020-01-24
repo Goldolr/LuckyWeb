@@ -49,8 +49,8 @@ namespace LuckyWeb.Controllers
         // GET: Entrevistas/Create
         public IActionResult Create()
         {
-            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda");
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser");
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "FechaAgenda");
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda", entrevista.IDagenda);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", entrevista.IDuser);
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "FechaAgenda", entrevista.IDagenda);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", entrevista.IDuser);
             return View(entrevista);
         }
 
@@ -85,8 +85,8 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda", entrevista.IDagenda);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", entrevista.IDuser);
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "FechaAgenda", entrevista.IDagenda);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", entrevista.IDuser);
             return View(entrevista);
         }
 
@@ -122,8 +122,8 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "IDagenda", entrevista.IDagenda);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", entrevista.IDuser);
+            ViewData["IDagenda"] = new SelectList(_context.Agendas, "IDagenda", "FechaAgenda", entrevista.IDagenda);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", entrevista.IDuser);
             return View(entrevista);
         }
 

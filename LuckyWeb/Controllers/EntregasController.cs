@@ -48,7 +48,7 @@ namespace LuckyWeb.Controllers
         // GET: Entregas/Create
         public IActionResult Create()
         {
-            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "IDinforme");
+            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "Detalle");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "IDinforme", entrega.IDinforme);
+            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "Detalle", entrega.IDinforme);
             return View(entrega);
         }
 
@@ -82,7 +82,7 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "IDinforme", entrega.IDinforme);
+            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "Detalle", entrega.IDinforme);
             return View(entrega);
         }
 
@@ -118,7 +118,7 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "IDinforme", entrega.IDinforme);
+            ViewData["IDinforme"] = new SelectList(_context.Informes, "IDinforme", "Detalle", entrega.IDinforme);
             return View(entrega);
         }
 

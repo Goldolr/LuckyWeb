@@ -13,11 +13,14 @@ namespace LuckyWeb.Models
         [Key]
         public Guid IdMascota { get; set; }
         [Display(Name = "Nombre")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string NombreMascota { get; set; }
         [Display(Name = "Edad")]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public int EdadMascota { get; set; }
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string Raza { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Este campo es obligatorio")]
         public string Esterilizado { get; set; }
         [Display(Name ="Adoptado")]
         public Boolean Estado { get; set; }

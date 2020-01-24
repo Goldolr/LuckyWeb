@@ -48,7 +48,7 @@ namespace LuckyWeb.Controllers
         // GET: Agenda/Create
         public IActionResult Create()
         {
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser");
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", agenda.IDuser);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", agenda.IDuser);
             return View(agenda);
         }
 
@@ -82,7 +82,7 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", agenda.IDuser);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", agenda.IDuser);
             return View(agenda);
         }
 
@@ -118,7 +118,7 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", agenda.IDuser);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", agenda.IDuser);
             return View(agenda);
         }
 

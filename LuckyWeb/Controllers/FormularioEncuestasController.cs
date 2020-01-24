@@ -50,9 +50,9 @@ namespace LuckyWeb.Controllers
         // GET: FormularioEncuestas/Create
         public IActionResult Create()
         {
-            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado");
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas");
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser");
+            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota");
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1");
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre");
             return View();
         }
 
@@ -69,9 +69,9 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado", formularioEncuesta.IDmascota);
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpregunta);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", formularioEncuesta.IDuser);
+            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1", formularioEncuesta.IDpregunta);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 
@@ -88,9 +88,9 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado", formularioEncuesta.IDmascota);
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpregunta);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", formularioEncuesta.IDuser);
+            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1", formularioEncuesta.IDpregunta);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 
@@ -126,9 +126,9 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "Esterilizado", formularioEncuesta.IDmascota);
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpregunta);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "IdUser", formularioEncuesta.IDuser);
+            ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
+            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1", formularioEncuesta.IDpregunta);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 
