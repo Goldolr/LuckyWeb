@@ -20,5 +20,6 @@ namespace LuckyWeb.Models
         public Guid IDuser { get; set; }
         [Display(Name ="Adoptante")]
         public User FK_UserAgenda { get; set; }
+        //asdasdasd
     }
 }
