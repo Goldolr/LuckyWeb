@@ -23,6 +23,7 @@ namespace LuckyWeb.Models
         [Display(Name = "Contraseña")]
         public string Contrasenia { get; set; }
         [Display(Name ="Fecha de Nacimiento")]
+        [DataType(DataType.Date)]
         [Required(ErrorMessage ="Este campo es obligatorio")]
         public DateTime FechaNacimiento { get; set; }
         public List<FormularioEncuesta> FormularioEncuestas { get; set; }
