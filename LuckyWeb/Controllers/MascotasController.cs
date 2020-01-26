@@ -20,8 +20,15 @@ namespace LuckyWeb.Controllers
         }
 
         // GET: Mascotas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string NombreMascota)
         {
+           
+            if (!String.IsNullOrEmpty(NombreMascota))
+            {
+                var busqueda = _context.Mascotas.Where(_context => _context.NombreMascota.Contains(NombreMascota));
+                return View(busqueda);
+            }
+         
             return View(await _context.Mascotas.ToListAsync());
         }
 
@@ -150,5 +157,9 @@ namespace LuckyWeb.Controllers
         {
             return _context.Mascotas.Any(e => e.IdMascota == id);
         }
+        //public ActionResult Buscador (String NombreMascota)
+        //{
+            
+        //}
     }
 }

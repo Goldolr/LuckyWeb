@@ -14,7 +14,14 @@
                 <a class="btn btn-outline-info btn-floating" asp-action="Create">Agregar nueva mascota </a>
             </p>
         }
-
+        <form action="@Url.Action("Index","NombreMascota")", method="get">
+            <div class="row">
+                <div class="col-md-3"> @Html.TextBox("NombreMascota",null,new { placeholder = "Busca tu perrito", @class="form-control" })</div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-success" style="margin-left:25px">Buscar</button>
+                </div>
+            </div>
+        </form>
         <div class="table-responsive-sm">
             <table class="table">
                 <thead class="thead-dark">
