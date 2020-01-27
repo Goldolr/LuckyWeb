@@ -44,7 +44,8 @@ namespace LuckyWeb.Migrations
                     b.Property<int>("IDentrega")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Detalle");
+                    b.Property<string>("Detalle")
+                        .IsRequired();
 
                     b.Property<bool>("Estado");
 
@@ -81,6 +82,30 @@ namespace LuckyWeb.Migrations
                     b.ToTable("tbl_Entrevista");
                 });
 
+            modelBuilder.Entity("LuckyWeb.Models.EstadoMascota", b =>
+                {
+                    b.Property<Guid>("IDestadoMascota")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Aprobacion");
+
+                    b.HasKey("IDestadoMascota");
+
+                    b.ToTable("tbl_EstadoMascota");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Esterilizado", b =>
+                {
+                    b.Property<Guid>("IDesterilizad")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("EstadoEsterilizado");
+
+                    b.HasKey("IDesterilizad");
+
+                    b.ToTable("tbl_Esterilizado");
+                });
+
             modelBuilder.Entity("LuckyWeb.Models.FormularioEncuesta", b =>
                 {
                     b.Property<int>("IDformularioEncuesta")
@@ -88,7 +113,7 @@ namespace LuckyWeb.Migrations
 
                     b.Property<Guid>("IDmascota");
 
-                    b.Property<int>("IDpregunta");
+                    b.Property<Guid>("IDpreguntas");
 
                     b.Property<Guid>("IDuser");
 
@@ -96,7 +121,7 @@ namespace LuckyWeb.Migrations
 
                     b.HasIndex("IDmascota");
 
-                    b.HasIndex("IDpregunta");
+                    b.HasIndex("IDpreguntas");
 
                     b.HasIndex("IDuser");
 
@@ -126,46 +151,74 @@ namespace LuckyWeb.Migrations
 
                     b.Property<int>("EdadMascota");
 
-                    b.Property<bool>("Estado");
+                    b.Property<Guid>("IDestadoMascota");
 
-                    b.Property<string>("Esterilizado")
+                    b.Property<Guid>("IDesterilizado");
+
+                    b.Property<Guid>("IDraza");
+
+                    b.Property<string>("NombreMascota")
                         .IsRequired();
 
-                    b.Property<string>("NombreMascota");
-
-                    b.Property<string>("Raza");
-
                     b.HasKey("IdMascota");
+
+                    b.HasIndex("IDestadoMascota");
+
+                    b.HasIndex("IDesterilizado");
+
+                    b.HasIndex("IDraza");
 
                     b.ToTable("tbl_Mascota");
                 });
 
             modelBuilder.Entity("LuckyWeb.Models.Pregunta", b =>
                 {
-                    b.Property<int>("IDpreguntas")
+                    b.Property<Guid>("IDpreguntas")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Pregunta1");
+                    b.Property<bool>("EstadoPreguntas");
 
-                    b.Property<string>("Pregunta10");
+                    b.Property<Guid>("IDrespuesta1");
 
-                    b.Property<string>("Pregunta2");
+                    b.Property<Guid>("IDrespuesta10");
 
-                    b.Property<string>("Pregunta3");
+                    b.Property<Guid>("IDrespuesta2");
 
-                    b.Property<string>("Pregunta4");
+                    b.Property<Guid>("IDrespuesta3");
 
-                    b.Property<string>("Pregunta5");
+                    b.Property<Guid>("IDrespuesta4");
 
-                    b.Property<string>("Pregunta6");
+                    b.Property<Guid>("IDrespuesta5");
 
-                    b.Property<string>("Pregunta7");
+                    b.Property<Guid>("IDrespuesta6");
 
-                    b.Property<string>("Pregunta8");
+                    b.Property<Guid>("IDrespuesta7");
 
-                    b.Property<string>("Pregunta9");
+                    b.Property<Guid>("IDrespuesta8");
+
+                    b.Property<Guid>("IDrespuesta9");
 
                     b.HasKey("IDpreguntas");
+
+                    b.HasIndex("IDrespuesta1");
+
+                    b.HasIndex("IDrespuesta10");
+
+                    b.HasIndex("IDrespuesta2");
+
+                    b.HasIndex("IDrespuesta3");
+
+                    b.HasIndex("IDrespuesta4");
+
+                    b.HasIndex("IDrespuesta5");
+
+                    b.HasIndex("IDrespuesta6");
+
+                    b.HasIndex("IDrespuesta7");
+
+                    b.HasIndex("IDrespuesta8");
+
+                    b.HasIndex("IDrespuesta9");
 
                     b.ToTable("tbl_Pregunta");
                 });
@@ -186,22 +239,158 @@ namespace LuckyWeb.Migrations
                     b.ToTable("tbl_Prueba");
                 });
 
+            modelBuilder.Entity("LuckyWeb.Models.Raza", b =>
+                {
+                    b.Property<Guid>("IDraza")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("RazaMascota");
+
+                    b.HasKey("IDraza");
+
+                    b.ToTable("tbl_Raza");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta1", b =>
+                {
+                    b.Property<Guid>("IDrespuesta1")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta1");
+
+                    b.ToTable("tbl_Respuesta1");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta10", b =>
+                {
+                    b.Property<Guid>("IDrespuesta10")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta10");
+
+                    b.ToTable("tbl_Respuesta10");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta2", b =>
+                {
+                    b.Property<Guid>("IDrespuesta2")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta2");
+
+                    b.ToTable("tbl_Respuesta2");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta3", b =>
+                {
+                    b.Property<Guid>("IDrespuesta3")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta3");
+
+                    b.ToTable("tbl_Respuesta3");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta4", b =>
+                {
+                    b.Property<Guid>("IDrespuesta4")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta4");
+
+                    b.ToTable("tbl_Respuesta4");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta5", b =>
+                {
+                    b.Property<Guid>("IDrespuesta5")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta5");
+
+                    b.ToTable("tbl_Respuesta5");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta6", b =>
+                {
+                    b.Property<Guid>("IDrespuesta6")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta6");
+
+                    b.ToTable("tbl_Respuesta6");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta7", b =>
+                {
+                    b.Property<Guid>("IDrespuesta7")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta7");
+
+                    b.ToTable("tbl_Respuesta7");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta8", b =>
+                {
+                    b.Property<Guid>("IDrespuesta8")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta8");
+
+                    b.ToTable("tbl_Respuesta8");
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Respuestas.Respuesta9", b =>
+                {
+                    b.Property<Guid>("IDrespuesta9")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Respuesta");
+
+                    b.HasKey("IDrespuesta9");
+
+                    b.ToTable("tbl_Respuesta9");
+                });
+
             modelBuilder.Entity("LuckyWeb.Models.User", b =>
                 {
                     b.Property<Guid>("IdUser")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Apellido");
+                    b.Property<string>("Apellido")
+                        .IsRequired();
 
-                    b.Property<string>("Cedula");
+                    b.Property<string>("Cedula")
+                        .IsRequired();
 
                     b.Property<string>("Contrasenia");
 
-                    b.Property<string>("Correo");
+                    b.Property<string>("Correo")
+                        .IsRequired();
 
                     b.Property<DateTime>("FechaNacimiento");
 
-                    b.Property<string>("Nombre");
+                    b.Property<string>("Nombre")
+                        .IsRequired();
 
                     b.HasKey("IdUser");
 
@@ -248,13 +437,13 @@ namespace LuckyWeb.Migrations
             modelBuilder.Entity("LuckyWeb.Models.FormularioEncuesta", b =>
                 {
                     b.HasOne("LuckyWeb.Models.Mascota", "FK_MascotaFormularioEncuesta")
-                        .WithMany("FormularioEncuestas")
+                        .WithMany()
                         .HasForeignKey("IDmascota")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("LuckyWeb.Models.Pregunta", "FK_PreguntaFormularioEncuesta")
                         .WithMany()
-                        .HasForeignKey("IDpregunta")
+                        .HasForeignKey("IDpreguntas")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("LuckyWeb.Models.User", "FK_UserFormularioEncuesta")
@@ -268,6 +457,77 @@ namespace LuckyWeb.Migrations
                     b.HasOne("LuckyWeb.Models.Prueba", "FK_PruebaInforme")
                         .WithMany()
                         .HasForeignKey("IDprueba")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Mascota", b =>
+                {
+                    b.HasOne("LuckyWeb.Models.EstadoMascota", "FK_EstadoMascotaMascota")
+                        .WithMany()
+                        .HasForeignKey("IDestadoMascota")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Esterilizado", "FK_EsterilizadoMascota")
+                        .WithMany()
+                        .HasForeignKey("IDesterilizado")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Raza", "FK_RazaMascota")
+                        .WithMany()
+                        .HasForeignKey("IDraza")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("LuckyWeb.Models.Pregunta", b =>
+                {
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta1", "FK_Respuesta1Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta1")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta10", "FK_Respuesta10Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta10")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta2", "FK_Respuesta2Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta2")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta3", "FK_Respuesta3Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta3")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta4", "FK_Respuesta4Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta4")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta5", "FK_Respuesta5Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta5")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta6", "FK_Respuesta6Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta6")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta7", "FK_Respuesta7Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta7")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta8", "FK_Respuesta8Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta8")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("LuckyWeb.Models.Respuestas.Respuesta9", "FK_Respuesta9Pregunta")
+                        .WithMany()
+                        .HasForeignKey("IDrespuesta9")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

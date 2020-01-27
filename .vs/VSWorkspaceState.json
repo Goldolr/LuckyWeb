@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LuckyWeb",
+    "\\LuckyWeb\\Context",
+    "\\LuckyWeb\\Models",
+    "\\LuckyWeb\\Views"
   ],
-  "SelectedNode": "\\LuckyWeb.sln",
+  "SelectedNode": "\\LuckyWeb\\Models\\FormularioEncuesta.cs",
   "PreviewInSolutionExplorer": false
 }

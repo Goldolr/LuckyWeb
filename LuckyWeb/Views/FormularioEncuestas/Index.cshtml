@@ -5,15 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body style="background-color:#6B7A8F">
-    <div class="card">
-        <div id="table" class="table-editable">
-            <h2 class="card-header text-center font-weight-bold text-uppercase py-4">Encuesta</h2>
+    <body style="background-color:#6B7A8F">
+        <div class="card">
+            <div id="table" class="table-editable">
+                <h2 class="card-header text-center font-weight-bold text-uppercase py-4">Encuesta</h2>
+                <p>
+                    <a class="btn btn-danger btn-rounded btn-sm my-0" asp-action="Create">Pendientes</a>
+                </p>
 
-            <p>
-                <a class="btn btn-danger btn-rounded btn-sm my-0" asp-action="Create">Pendientes</a>
-            </p>
-            <div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -34,18 +33,18 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_UserFormularioEncuesta.Nombre)
+                                    @Html.DisplayFor(modelItem => item.FK_UserFormularioEncuesta.Apellido)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FK_MascotaFormularioEncuesta.NombreMascota)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_PreguntaFormularioEncuesta.Pregunta1)
+                                    @Html.DisplayFor(modelItem => item.FK_PreguntaFormularioEncuesta.IDpreguntas)
                                 </td>
                                 <td>
-                                    <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IDformularioEncuesta">Editar</a>
-                                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IDformularioEncuesta">Detailles</a>
-                                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IDformularioEncuesta">Eliminar</a>
+                                    <a asp-action="Edit" asp-route-id="@item.IDformularioEncuesta">Edit</a> |
+                                    <a asp-action="Details" asp-route-id="@item.IDformularioEncuesta">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.IDformularioEncuesta">Delete</a>
                                 </td>
                             </tr>
                         }
@@ -53,5 +52,4 @@
                 </table>
             </div>
         </div>
-    </div>
 </body>

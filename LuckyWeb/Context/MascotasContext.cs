@@ -1,4 +1,5 @@
 ﻿using LuckyWeb.Models;
+using LuckyWeb.Models.Respuestas;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,19 @@ namespace LuckyWeb.Context
         public DbSet<FormularioEncuesta> FormularioEncuestas { get; set; }
         public DbSet<Informe> Informes { get; set; }
         public DbSet<Pregunta> Preguntas { get; set; }
-        public DbSet<LuckyWeb.Models.Prueba> Prueba { get; set; }
+        public DbSet<Prueba> Prueba { get; set; }
+        public DbSet<Esterilizado> Esterilizados { get; set; }
+        public DbSet<Raza> Razas { get; set; }
+        public DbSet<Respuesta1> Respuestas1 { get; set; }
+        public DbSet<Respuesta2> Respuestas2 { get; set; }
+        public DbSet<Respuesta3> Respuestas3 { get; set; }
+        public DbSet<Respuesta4> Respuestas4 { get; set; }
+        public DbSet<Respuesta5> Respuestas5 { get; set; }
+        public DbSet<Respuesta6> Respuestas6 { get; set; }
+        public DbSet<Respuesta7> Respuestas7 { get; set; }
+        public DbSet<Respuesta8> Respuestas8 { get; set; }
+        public DbSet<Respuesta9> Respuestas9 { get; set; }
+        public DbSet<Respuesta10> Respuestas10 { get; set; }
+        public DbSet<EstadoMascota> EstadoMascotas { get; set; }
     }
 }

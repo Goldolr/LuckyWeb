@@ -13023,11 +13023,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Proyectos\\LuckyWeb\\LuckyWeb.csproj",
+      "projectUniqueName": "D:\\Repositorios\\LuckyWeb\\LuckyWeb\\LuckyWeb.csproj",
       "projectName": "LuckyWeb",
-      "projectPath": "E:\\Proyectos\\LuckyWeb\\LuckyWeb.csproj",
+      "projectPath": "D:\\Repositorios\\LuckyWeb\\LuckyWeb\\LuckyWeb.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "E:\\Proyectos\\LuckyWeb\\obj\\",
+      "outputPath": "D:\\Repositorios\\LuckyWeb\\LuckyWeb\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

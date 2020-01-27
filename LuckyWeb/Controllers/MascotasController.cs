@@ -22,14 +22,13 @@ namespace LuckyWeb.Controllers
         // GET: Mascotas
         public async Task<IActionResult> Index(string NombreMascota)
         {
-           
             if (!String.IsNullOrEmpty(NombreMascota))
             {
                 var busqueda = _context.Mascotas.Where(_context => _context.NombreMascota.Contains(NombreMascota));
                 return View(busqueda);
             }
-         
-            return View(await _context.Mascotas.ToListAsync());
+            var mascotasContext = _context.Mascotas.Include(m => m.FK_EstadoMascotaMascota).Include(m => m.FK_EsterilizadoMascota).Include(m => m.FK_RazaMascota);
+            return View(await mascotasContext.ToListAsync());
         }
 
         // GET: Mascotas/Details/5
@@ -41,6 +40,9 @@ namespace LuckyWeb.Controllers
             }
 
             var mascota = await _context.Mascotas
+                .Include(m => m.FK_EstadoMascotaMascota)
+                .Include(m => m.FK_EsterilizadoMascota)
+                .Include(m => m.FK_RazaMascota)
                 .FirstOrDefaultAsync(m => m.IdMascota == id);
             if (mascota == null)
             {
@@ -53,6 +55,9 @@ namespace LuckyWeb.Controllers
         // GET: Mascotas/Create
         public IActionResult Create()
         {
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota");
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad");
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza");
             return View();
         }
 
@@ -61,7 +66,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdMascota,NombreMascota,EdadMascota,Raza,Esterilizado,Estado")] Mascota mascota)
+        public async Task<IActionResult> Create([Bind("IdMascota,NombreMascota,EdadMascota,IDraza,IDesterilizado,IDestadoMascota")] Mascota mascota)
         {
             if (ModelState.IsValid)
             {
@@ -70,6 +75,9 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
             return View(mascota);
         }
 
@@ -86,6 +94,9 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
             return View(mascota);
         }
 
@@ -94,7 +105,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("IdMascota,NombreMascota,EdadMascota,Raza,Esterilizado,Estado")] Mascota mascota)
+        public async Task<IActionResult> Edit(Guid id, [Bind("IdMascota,NombreMascota,EdadMascota,IDraza,IDesterilizado,IDestadoMascota")] Mascota mascota)
         {
             if (id != mascota.IdMascota)
             {
@@ -121,6 +132,9 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
             return View(mascota);
         }
 
@@ -133,6 +147,9 @@ namespace LuckyWeb.Controllers
             }
 
             var mascota = await _context.Mascotas
+                .Include(m => m.FK_EstadoMascotaMascota)
+                .Include(m => m.FK_EsterilizadoMascota)
+                .Include(m => m.FK_RazaMascota)
                 .FirstOrDefaultAsync(m => m.IdMascota == id);
             if (mascota == null)
             {
@@ -157,9 +174,5 @@ namespace LuckyWeb.Controllers
         {
             return _context.Mascotas.Any(e => e.IdMascota == id);
         }
-        //public ActionResult Buscador (String NombreMascota)
-        //{
-            
-        //}
     }
 }

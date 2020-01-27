@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LuckyWeb.Controllers
 {
-    [Authorize(Roles ="Administrador")]
+    [Authorize(Roles = "Administrador")]
     public class UsersController : Controller
     {
         private readonly MascotasContext _context;

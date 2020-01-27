@@ -51,8 +51,8 @@ namespace LuckyWeb.Controllers
         public IActionResult Create()
         {
             ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota");
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1");
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre");
+            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas");
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Apellido");
             return View();
         }
 
@@ -61,7 +61,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IDformularioEncuesta,IDuser,IDmascota,IDpregunta")] FormularioEncuesta formularioEncuesta)
+        public async Task<IActionResult> Create([Bind("IDformularioEncuesta,IDuser,IDmascota,IDpreguntas")] FormularioEncuesta formularioEncuesta)
         {
             if (ModelState.IsValid)
             {
@@ -70,8 +70,8 @@ namespace LuckyWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1", formularioEncuesta.IDpregunta);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
+            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpreguntas);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Apellido", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 
@@ -89,8 +89,8 @@ namespace LuckyWeb.Controllers
                 return NotFound();
             }
             ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1", formularioEncuesta.IDpregunta);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
+            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpreguntas);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Apellido", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 
@@ -99,7 +99,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IDformularioEncuesta,IDuser,IDmascota,IDpregunta")] FormularioEncuesta formularioEncuesta)
+        public async Task<IActionResult> Edit(int id, [Bind("IDformularioEncuesta,IDuser,IDmascota,IDpreguntas")] FormularioEncuesta formularioEncuesta)
         {
             if (id != formularioEncuesta.IDformularioEncuesta)
             {
@@ -127,8 +127,8 @@ namespace LuckyWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
-            ViewData["IDpregunta"] = new SelectList(_context.Preguntas, "IDpreguntas", "Pregunta1", formularioEncuesta.IDpregunta);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
+            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpreguntas);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Apellido", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 

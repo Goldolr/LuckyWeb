@@ -1,54 +1,34 @@
 ﻿@model IEnumerable<LuckyWeb.Models.Pregunta>
 
 @{
-    ViewData["Title"] = "Preguntas";
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 <body style="background-color:#6B7A8F">
     <div class="card">
         <div id="table" class="table-editable">
-            <h2 class="card-header text-center font-weight-bold text-uppercase py-4">Cuentanos un poco de ti</h2>
-
             <p>
                 <a class="btn btn-danger btn-rounded btn-sm my-0" asp-action="Create">Ingrese sus respuestas</a>
             </p>
-
             <div>
                 <table class="table table-bordered table-responsive-md table-striped text-center">
                     <thead class="thead-dark">
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Pregunta1)
+                                @Html.DisplayNameFor(model => model.EstadoPreguntas)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Pregunta2)
+                                @Html.DisplayNameFor(model => model.FK_Respuesta1Pregunta)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Pregunta3)
+                                @Html.DisplayNameFor(model => model.FK_Respuesta2Pregunta)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Pregunta4)
+                                @Html.DisplayNameFor(model => model.FK_Respuesta3Pregunta)
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Pregunta5)
+                                @Html.DisplayNameFor(model => model.FK_Respuesta4Pregunta)
                             </th>
-                            @*<th>
-                                    @Html.DisplayNameFor(model => model.Pregunta6)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Pregunta7)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Pregunta8)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Pregunta9)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Pregunta10)
-                                </th>
-                                <th></th>*@
                         </tr>
                     </thead>
                     <tbody>
@@ -56,43 +36,23 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Pregunta1)
+                                    @Html.DisplayFor(modelItem => item.EstadoPreguntas)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Pregunta2)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta1Pregunta.IDrespuesta1)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Pregunta3)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta2Pregunta.IDrespuesta2)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Pregunta4)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta3Pregunta.IDrespuesta3)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Pregunta5)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta4Pregunta.IDrespuesta4)
                                 </td>
-                                @*<td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta6)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta7)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta8)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta9)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta10)
-                                    </td>*@
-                                @*<td>
-                                        <a asp-action="Edit" asp-route-id="@item.IDpreguntas">Edit</a> |
-                                        <a asp-action="Details" asp-route-id="@item.IDpreguntas">Details</a> |
-                                        <a asp-action="Delete" asp-route-id="@item.IDpreguntas">Delete</a>
-                                    </td>*@
-                                @*<td>
-
-                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta5Pregunta.IDrespuesta5)
+                                </td>
                             </tr>
                         }
                     </tbody>
@@ -101,35 +61,23 @@
             <table class="table table-bordered table-responsive-md table-striped text-center">
                 <thead class="thead-dark">
                     <tr>
-                        @*<th>
-                                @Html.DisplayNameFor(model => model.Pregunta1)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Pregunta2)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Pregunta3)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Pregunta4)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.Pregunta5)
-                            </th>*@
                         <th>
-                            @Html.DisplayNameFor(model => model.Pregunta6)
+                            @Html.DisplayNameFor(model => model.EstadoPreguntas)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Pregunta7)
+                            @Html.DisplayNameFor(model => model.FK_Respuesta6Pregunta)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Pregunta8)
+                            @Html.DisplayNameFor(model => model.FK_Respuesta7Pregunta)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Pregunta9)
+                            @Html.DisplayNameFor(model => model.FK_Respuesta8Pregunta)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Pregunta10)
+                            @Html.DisplayNameFor(model => model.FK_Respuesta9Pregunta)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FK_Respuesta10Pregunta)
                         </th>
                         <th></th>
                     </tr>
@@ -138,52 +86,37 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            @*<td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta1)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta2)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta3)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Pregunta4)
-                                    </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Pregunta5)
-                                </td>*@
                             <td>
-                                @Html.DisplayFor(modelItem => item.Pregunta6)
+                                @Html.DisplayFor(modelItem => item.EstadoPreguntas)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Pregunta7)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta6Pregunta.IDrespuesta6)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Pregunta8)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta7Pregunta.IDrespuesta7)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Pregunta9)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta8Pregunta.IDrespuesta8)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Pregunta10)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta9Pregunta.IDrespuesta9)
                             </td>
-
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta10Pregunta.IDrespuesta10)
+                            </td>
                         </tr>
                         <table class="table table-bordered table-responsive-md table-striped text-center">
                             <thead class="thead-light">
                                 <tr>
-
                                     <th><a asp-action="Edit" asp-route-id="@item.IDpreguntas">Editar</a></th>
                                     <th><a asp-action="Delete" asp-route-id="@item.IDpreguntas">Eliminar</a></th>
                                 </tr>
                             </thead>
                         </table>
-
                     }
                 </tbody>
-            </table>
 
+            </table>
         </div>
     </div>
 </body>

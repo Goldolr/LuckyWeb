@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Edit</h1>
@@ -24,19 +25,19 @@
                 <span asp-validation-for="EdadMascota" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Raza" class="control-label"></label>
-                <input asp-for="Raza" class="form-control" />
-                <span asp-validation-for="Raza" class="text-danger"></span>
+                <label asp-for="IDraza" class="control-label"></label>
+                <select asp-for="IDraza" class="form-control" asp-items="ViewBag.IDraza"></select>
+                <span asp-validation-for="IDraza" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Esterilizado" class="control-label"></label>
-                <input asp-for="Esterilizado" class="form-control" />
-                <span asp-validation-for="Esterilizado" class="text-danger"></span>
+                <label asp-for="IDesterilizado" class="control-label"></label>
+                <select asp-for="IDesterilizado" class="form-control" asp-items="ViewBag.IDesterilizado"></select>
+                <span asp-validation-for="IDesterilizado" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Estado" /> @Html.DisplayNameFor(model => model.Estado)
-                </label>
+            <div class="form-group">
+                <label asp-for="IDestadoMascota" class="control-label"></label>
+                <select asp-for="IDestadoMascota" class="form-control" asp-items="ViewBag.IDestadoMascota"></select>
+                <span asp-validation-for="IDestadoMascota" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

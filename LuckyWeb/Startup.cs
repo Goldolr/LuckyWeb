@@ -72,6 +72,9 @@ namespace LuckyWeb
             });
             //CreateRoles(serviceProvider).Wait();
             //AddUserToRole(serviceProvider, "Administrador", "admin@hotmail.com").Wait();
+            //AddUserToRole(serviceProvider, "Supervisor", "oliver@hotmail.com").Wait();
+            //AddUserToRole(serviceProvider, "Supervisor", "jerson@hotmail.com").Wait();
+            //AddUserToRole(serviceProvider, "Supervisor", "leonardo@hotmail.com").Wait();
         }
 
         private async Task CreateRoles(IServiceProvider serviceProvider)

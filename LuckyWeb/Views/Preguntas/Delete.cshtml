@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Delete</h1>
@@ -12,65 +13,71 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta1)
+            @Html.DisplayNameFor(model => model.EstadoPreguntas)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta1)
+            @Html.DisplayFor(model => model.EstadoPreguntas)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta2)
+            @Html.DisplayNameFor(model => model.FK_Respuesta1Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta2)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta1Pregunta.IDrespuesta1)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta3)
+            @Html.DisplayNameFor(model => model.FK_Respuesta2Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta3)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta2Pregunta.IDrespuesta2)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta4)
+            @Html.DisplayNameFor(model => model.FK_Respuesta3Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta4)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta3Pregunta.IDrespuesta3)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta5)
+            @Html.DisplayNameFor(model => model.FK_Respuesta4Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta5)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta4Pregunta.IDrespuesta4)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta6)
+            @Html.DisplayNameFor(model => model.FK_Respuesta5Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta6)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta5Pregunta.IDrespuesta5)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta7)
+            @Html.DisplayNameFor(model => model.FK_Respuesta6Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta7)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta6Pregunta.IDrespuesta6)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta8)
+            @Html.DisplayNameFor(model => model.FK_Respuesta7Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta8)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta7Pregunta.IDrespuesta7)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta9)
+            @Html.DisplayNameFor(model => model.FK_Respuesta8Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta9)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta8Pregunta.IDrespuesta8)
+        </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Pregunta10)
+            @Html.DisplayNameFor(model => model.FK_Respuesta9Pregunta)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Pregunta10)
-        </dd>
+            @Html.DisplayFor(model => model.FK_Respuesta9Pregunta.IDrespuesta9)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FK_Respuesta10Pregunta)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FK_Respuesta10Pregunta.IDrespuesta10)
+        </dd class>
     </dl>
     
     <form asp-action="Delete">

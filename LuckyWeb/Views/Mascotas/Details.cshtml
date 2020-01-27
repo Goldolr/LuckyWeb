@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Details</h1>
@@ -23,22 +24,22 @@
             @Html.DisplayFor(model => model.EdadMascota)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Raza)
+            @Html.DisplayNameFor(model => model.FK_RazaMascota)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Raza)
+            @Html.DisplayFor(model => model.FK_RazaMascota.IDraza)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Esterilizado)
+            @Html.DisplayNameFor(model => model.FK_EsterilizadoMascota)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Esterilizado)
+            @Html.DisplayFor(model => model.FK_EsterilizadoMascota.IDesterilizad)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Estado)
+            @Html.DisplayNameFor(model => model.FK_EstadoMascotaMascota)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
+            @Html.DisplayFor(model => model.FK_EstadoMascotaMascota.IDestadoMascota)
         </dd>
     </dl>
 </div>

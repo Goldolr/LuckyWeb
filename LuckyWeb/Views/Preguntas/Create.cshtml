@@ -2,84 +2,71 @@
 
 @{
     ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body style="background-image:url(https://image.freepik.com/vector-gratis/perro-gato-pug-hueso-espinas-pescado-huellas-pata-fondo-vector-patron-transparente-bola_7688-21.jpg);">
-</body>
-<div class="card" style="margin:auto;width:600px;background-color:antiquewhite">
-    <h1 class="card-header info-color white-text text-center py-4" style="background-color:burlywood">
-        <strong>Haz nos saber lo que te gusta</strong>
-    </h1>
+<h1>Create</h1>
 
-    <!--Card content-->
-    <div class="card-body px-lg-5 pt-0">
-
-        <hr />
-        @*<div class="row">*@
-        @*<div class="col-md-4">*@
-        <!-- Form -->
-        <form asp-action="Create" class="text-center" style="color: #757575;">
+<h4>Pregunta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta1" class="control-label"></label>
-                <input asp-for="Pregunta1" class="form-control" />
-                <span asp-validation-for="Pregunta1" class="text-danger"></span>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="EstadoPreguntas" /> @Html.DisplayNameFor(model => model.EstadoPreguntas)
+                </label>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta2" class="control-label"></label>
-                <input asp-for="Pregunta2" class="form-control" />
-                <span asp-validation-for="Pregunta2" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta1" class="control-label"></label>
+                <select asp-for="IDrespuesta1" class ="form-control" asp-items="ViewBag.IDrespuesta1"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta3" class="control-label"></label>
-                <input asp-for="Pregunta3" class="form-control" />
-                <span asp-validation-for="Pregunta3" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta2" class="control-label"></label>
+                <select asp-for="IDrespuesta2" class ="form-control" asp-items="ViewBag.IDrespuesta2"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta4" class="control-label"></label>
-                <input asp-for="Pregunta4" class="form-control" />
-                <span asp-validation-for="Pregunta4" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta3" class="control-label"></label>
+                <select asp-for="IDrespuesta3" class ="form-control" asp-items="ViewBag.IDrespuesta3"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta5" class="control-label"></label>
-                <input asp-for="Pregunta5" class="form-control" />
-                <span asp-validation-for="Pregunta5" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta4" class="control-label"></label>
+                <select asp-for="IDrespuesta4" class ="form-control" asp-items="ViewBag.IDrespuesta4"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta6" class="control-label"></label>
-                <input asp-for="Pregunta6" class="form-control" />
-                <span asp-validation-for="Pregunta6" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta5" class="control-label"></label>
+                <select asp-for="IDrespuesta5" class ="form-control" asp-items="ViewBag.IDrespuesta5"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta7" class="control-label"></label>
-                <input asp-for="Pregunta7" class="form-control" />
-                <span asp-validation-for="Pregunta7" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta6" class="control-label"></label>
+                <select asp-for="IDrespuesta6" class ="form-control" asp-items="ViewBag.IDrespuesta6"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta8" class="control-label"></label>
-                <input asp-for="Pregunta8" class="form-control" />
-                <span asp-validation-for="Pregunta8" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta7" class="control-label"></label>
+                <select asp-for="IDrespuesta7" class ="form-control" asp-items="ViewBag.IDrespuesta7"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta9" class="control-label"></label>
-                <input asp-for="Pregunta9" class="form-control" />
-                <span asp-validation-for="Pregunta9" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta8" class="control-label"></label>
+                <select asp-for="IDrespuesta8" class ="form-control" asp-items="ViewBag.IDrespuesta8"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <label asp-for="Pregunta10" class="control-label"></label>
-                <input asp-for="Pregunta10" class="form-control" />
-                <span asp-validation-for="Pregunta10" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="IDrespuesta9" class="control-label"></label>
+                <select asp-for="IDrespuesta9" class ="form-control" asp-items="ViewBag.IDrespuesta9"></select>
             </div>
-            <div class="form-group" style="margin:auto;width:300px;">
-                <input type="submit" value="Create" class="btn btn-outline-dark btn-rounded btn-block my-4 waves-effect z-depth-0" />
+            <div class="form-group">
+                <label asp-for="IDrespuesta10" class="control-label"></label>
+                <select asp-for="IDrespuesta10" class ="form-control" asp-items="ViewBag.IDrespuesta10"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
-
-        <div>
-            <a asp-action="Index">Atrás</a>
-        </div>
-
     </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
