@@ -274,11 +274,6 @@ D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entregas\D
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entregas\Details.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entregas\Edit.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entregas\Index.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Create.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Delete.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Details.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Edit.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Index.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Home\Index.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Home\Privacy.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Informes\Create.cshtml.g.cs
@@ -399,3 +394,8 @@ D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Razas\Dele
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Razas\Details.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Razas\Edit.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Razas\Index.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Create.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Delete.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Details.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Edit.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Index.cshtml.g.cs

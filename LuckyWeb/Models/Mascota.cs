@@ -56,5 +56,8 @@ namespace LuckyWeb.Models
         [Display(Name = "Adoptado")]
         public EstadoMascota FK_EstadoMascotaMascota { get; set; }
         //------------End------------//
+
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public int Identificador { get; set; }
     }
 }

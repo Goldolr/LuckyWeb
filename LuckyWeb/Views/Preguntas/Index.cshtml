@@ -39,19 +39,19 @@
                                     @Html.DisplayFor(modelItem => item.EstadoPreguntas)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_Respuesta1Pregunta.IDrespuesta1)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta1Pregunta.Respuesta)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_Respuesta2Pregunta.IDrespuesta2)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta2Pregunta.Respuesta)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_Respuesta3Pregunta.IDrespuesta3)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta3Pregunta.Respuesta)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_Respuesta4Pregunta.IDrespuesta4)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta4Pregunta.Respuesta)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_Respuesta5Pregunta.IDrespuesta5)
+                                    @Html.DisplayFor(modelItem => item.FK_Respuesta5Pregunta.Respuesta)
                                 </td>
                             </tr>
                         }
@@ -87,22 +87,31 @@
                     {
                         <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.EstadoPreguntas)
+                                @{ if (item.EstadoPreguntas == true)
+                                    {
+                                        <span>Aprobo</span>
+                                    }
+                                    else
+                                    {
+                                        <span>No aprobo</span>
+                                    }
+
+                                }
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.FK_Respuesta6Pregunta.IDrespuesta6)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta6Pregunta.Respuesta)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.FK_Respuesta7Pregunta.IDrespuesta7)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta7Pregunta.Respuesta)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.FK_Respuesta8Pregunta.IDrespuesta8)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta8Pregunta.Respuesta)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.FK_Respuesta9Pregunta.IDrespuesta9)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta9Pregunta.Respuesta)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.FK_Respuesta10Pregunta.IDrespuesta10)
+                                @Html.DisplayFor(modelItem => item.FK_Respuesta10Pregunta.Respuesta)
                             </td>
                         </tr>
                         <table class="table table-bordered table-responsive-md table-striped text-center">

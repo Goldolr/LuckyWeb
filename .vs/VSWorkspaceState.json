@@ -4,8 +4,10 @@
     "\\LuckyWeb",
     "\\LuckyWeb\\Context",
     "\\LuckyWeb\\Models",
-    "\\LuckyWeb\\Views"
+    "\\LuckyWeb\\Views",
+    "\\LuckyWeb\\Views\\Entrevistas",
+    "\\LuckyWeb\\Views\\Preguntas"
   ],
-  "SelectedNode": "\\LuckyWeb\\Models\\FormularioEncuesta.cs",
+  "SelectedNode": "\\LuckyWeb.sln",
   "PreviewInSolutionExplorer": false
 }

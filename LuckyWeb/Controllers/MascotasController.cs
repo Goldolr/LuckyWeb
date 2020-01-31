@@ -24,7 +24,8 @@ namespace LuckyWeb.Controllers
         {
             if (!String.IsNullOrEmpty(NombreMascota))
             {
-                var busqueda = _context.Mascotas.Where(_context => _context.NombreMascota.Contains(NombreMascota));
+                var busqueda = _context.Mascotas.Where(_context => _context.NombreMascota.Contains(NombreMascota))
+                    .Include(m => m.FK_EstadoMascotaMascota).Include(m => m.FK_EsterilizadoMascota).Include(m => m.FK_RazaMascota);
                 return View(busqueda);
             }
             var mascotasContext = _context.Mascotas.Include(m => m.FK_EstadoMascotaMascota).Include(m => m.FK_EsterilizadoMascota).Include(m => m.FK_RazaMascota);
@@ -55,9 +56,9 @@ namespace LuckyWeb.Controllers
         // GET: Mascotas/Create
         public IActionResult Create()
         {
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota");
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad");
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza");
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion");
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado");
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota");
             return View();
         }
 
@@ -75,9 +76,9 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota", mascota.IDraza);
             return View(mascota);
         }
 
@@ -94,9 +95,9 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota", mascota.IDraza);
             return View(mascota);
         }
 
@@ -132,9 +133,9 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota", mascota.IDraza);
             return View(mascota);
         }
 

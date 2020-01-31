@@ -51,8 +51,8 @@ namespace LuckyWeb.Controllers
         public IActionResult Create()
         {
             ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota");
-            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas");
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Apellido");
+            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "EstadoPreguntas");
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre");
             return View();
         }
 
@@ -70,8 +70,8 @@ namespace LuckyWeb.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IDmascota"] = new SelectList(_context.Mascotas, "IdMascota", "NombreMascota", formularioEncuesta.IDmascota);
-            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "IDpreguntas", formularioEncuesta.IDpreguntas);
-            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Apellido", formularioEncuesta.IDuser);
+            ViewData["IDpreguntas"] = new SelectList(_context.Preguntas, "IDpreguntas", "EstadoPreguntas", formularioEncuesta.IDpreguntas);
+            ViewData["IDuser"] = new SelectList(_context.Users, "IdUser", "Nombre", formularioEncuesta.IDuser);
             return View(formularioEncuesta);
         }
 

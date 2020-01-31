@@ -57,16 +57,16 @@ namespace LuckyWeb.Controllers
         // GET: Preguntas/Create
         public IActionResult Create()
         {
-            ViewData["IDrespuesta10"] = new SelectList(_context.Respuestas10, "IDrespuesta10", "IDrespuesta10");
-            ViewData["IDrespuesta1"] = new SelectList(_context.Respuestas1, "IDrespuesta1", "IDrespuesta1");
-            ViewData["IDrespuesta2"] = new SelectList(_context.Respuestas2, "IDrespuesta2", "IDrespuesta2");
-            ViewData["IDrespuesta3"] = new SelectList(_context.Respuestas3, "IDrespuesta3", "IDrespuesta3");
-            ViewData["IDrespuesta4"] = new SelectList(_context.Respuestas4, "IDrespuesta4", "IDrespuesta4");
-            ViewData["IDrespuesta5"] = new SelectList(_context.Respuestas5, "IDrespuesta5", "IDrespuesta5");
-            ViewData["IDrespuesta6"] = new SelectList(_context.Respuestas6, "IDrespuesta6", "IDrespuesta6");
-            ViewData["IDrespuesta7"] = new SelectList(_context.Respuestas7, "IDrespuesta7", "IDrespuesta7");
-            ViewData["IDrespuesta8"] = new SelectList(_context.Respuestas8, "IDrespuesta8", "IDrespuesta8");
-            ViewData["IDrespuesta9"] = new SelectList(_context.Respuestas9, "IDrespuesta9", "IDrespuesta9");
+            ViewData["IDrespuesta10"] = new SelectList(_context.Respuestas10, "IDrespuesta10", "Respuesta");
+            ViewData["IDrespuesta1"] = new SelectList(_context.Respuestas1, "IDrespuesta1", "Respuesta");
+            ViewData["IDrespuesta2"] = new SelectList(_context.Respuestas2, "IDrespuesta2", "Respuesta");
+            ViewData["IDrespuesta3"] = new SelectList(_context.Respuestas3, "IDrespuesta3", "Respuesta");
+            ViewData["IDrespuesta4"] = new SelectList(_context.Respuestas4, "IDrespuesta4", "Respuesta");
+            ViewData["IDrespuesta5"] = new SelectList(_context.Respuestas5, "IDrespuesta5", "Respuesta");
+            ViewData["IDrespuesta6"] = new SelectList(_context.Respuestas6, "IDrespuesta6", "Respuesta");
+            ViewData["IDrespuesta7"] = new SelectList(_context.Respuestas7, "IDrespuesta7", "Respuesta");
+            ViewData["IDrespuesta8"] = new SelectList(_context.Respuestas8, "IDrespuesta8", "Respuesta");
+            ViewData["IDrespuesta9"] = new SelectList(_context.Respuestas9, "IDrespuesta9", "Respuesta");
             return View();
         }
 
@@ -84,16 +84,16 @@ namespace LuckyWeb.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDrespuesta10"] = new SelectList(_context.Respuestas10, "IDrespuesta10", "IDrespuesta10", pregunta.IDrespuesta10);
-            ViewData["IDrespuesta1"] = new SelectList(_context.Respuestas1, "IDrespuesta1", "IDrespuesta1", pregunta.IDrespuesta1);
-            ViewData["IDrespuesta2"] = new SelectList(_context.Respuestas2, "IDrespuesta2", "IDrespuesta2", pregunta.IDrespuesta2);
-            ViewData["IDrespuesta3"] = new SelectList(_context.Respuestas3, "IDrespuesta3", "IDrespuesta3", pregunta.IDrespuesta3);
-            ViewData["IDrespuesta4"] = new SelectList(_context.Respuestas4, "IDrespuesta4", "IDrespuesta4", pregunta.IDrespuesta4);
-            ViewData["IDrespuesta5"] = new SelectList(_context.Respuestas5, "IDrespuesta5", "IDrespuesta5", pregunta.IDrespuesta5);
-            ViewData["IDrespuesta6"] = new SelectList(_context.Respuestas6, "IDrespuesta6", "IDrespuesta6", pregunta.IDrespuesta6);
-            ViewData["IDrespuesta7"] = new SelectList(_context.Respuestas7, "IDrespuesta7", "IDrespuesta7", pregunta.IDrespuesta7);
-            ViewData["IDrespuesta8"] = new SelectList(_context.Respuestas8, "IDrespuesta8", "IDrespuesta8", pregunta.IDrespuesta8);
-            ViewData["IDrespuesta9"] = new SelectList(_context.Respuestas9, "IDrespuesta9", "IDrespuesta9", pregunta.IDrespuesta9);
+            ViewData["IDrespuesta10"] = new SelectList(_context.Respuestas10, "IDrespuesta10", "Respuesta", pregunta.IDrespuesta10);
+            ViewData["IDrespuesta1"] = new SelectList(_context.Respuestas1, "IDrespuesta1", "Respuesta", pregunta.IDrespuesta1);
+            ViewData["IDrespuesta2"] = new SelectList(_context.Respuestas2, "IDrespuesta2", "Respuesta", pregunta.IDrespuesta2);
+            ViewData["IDrespuesta3"] = new SelectList(_context.Respuestas3, "IDrespuesta3", "Respuesta", pregunta.IDrespuesta3);
+            ViewData["IDrespuesta4"] = new SelectList(_context.Respuestas4, "IDrespuesta4", "Respuesta", pregunta.IDrespuesta4);
+            ViewData["IDrespuesta5"] = new SelectList(_context.Respuestas5, "IDrespuesta5", "Respuesta", pregunta.IDrespuesta5);
+            ViewData["IDrespuesta6"] = new SelectList(_context.Respuestas6, "IDrespuesta6", "Respuesta", pregunta.IDrespuesta6);
+            ViewData["IDrespuesta7"] = new SelectList(_context.Respuestas7, "IDrespuesta7", "Respuesta", pregunta.IDrespuesta7);
+            ViewData["IDrespuesta8"] = new SelectList(_context.Respuestas8, "IDrespuesta8", "Respuesta", pregunta.IDrespuesta8);
+            ViewData["IDrespuesta9"] = new SelectList(_context.Respuestas9, "IDrespuesta9", "Respuesta", pregunta.IDrespuesta9);
             return View(pregunta);
         }
 

@@ -53,20 +53,21 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.NombreMascota)
                         </td>
+
                         <td>
                             @Html.DisplayFor(modelItem => item.EdadMascota)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FK_RazaMascota.IDraza)
+                            @Html.DisplayFor(modelItem => item.FK_RazaMascota.RazaMascota)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FK_EsterilizadoMascota.IDesterilizad)
+                            @Html.DisplayFor(modelItem => item.FK_EsterilizadoMascota.EstadoEsterilizado)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.FK_EstadoMascotaMascota.IDestadoMascota)
+                            @Html.DisplayFor(modelItem => item.FK_EstadoMascotaMascota.Aprobacion)
                         </td>
                         <td>
-                            @if (User.IsInRole("Administrador")||User.IsInRole("Supervisor"))
+                            @if (User.IsInRole("Administrador") || User.IsInRole("Supervisor"))
                             {
                                 <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IdMascota">Editar</a>
                                 <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdMascota">Detalles</a>
@@ -82,8 +83,9 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdMascota">Si</a>
-
+                                                <form asp-controller="Mascotas" asp-action="DeleteConfirmed" asp-route-id="@item.IdMascota">
+                                                    <button type="submit" class="btn btn-danger">Si</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

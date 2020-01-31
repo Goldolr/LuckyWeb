@@ -33,13 +33,17 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_UserFormularioEncuesta.Apellido)
+                                    @Html.DisplayFor(modelItem => item.FK_UserFormularioEncuesta.Nombre) @Html.DisplayFor(modelItem => item.FK_UserFormularioEncuesta.Apellido)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.FK_MascotaFormularioEncuesta.NombreMascota)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FK_PreguntaFormularioEncuesta.IDpreguntas)
+                                    @if (@item.FK_PreguntaFormularioEncuesta.EstadoPreguntas==true)
+                                    {
+                                        <span>Aprobado</span>
+                                    }
+                                    
                                 </td>
                                 <td>
                                     <a asp-action="Edit" asp-route-id="@item.IDformularioEncuesta">Edit</a> |
