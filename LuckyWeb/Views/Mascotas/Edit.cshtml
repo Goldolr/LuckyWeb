@@ -9,9 +9,12 @@
 
 <h4>Mascota</h4>
 <hr />
+<div class="col-md-4">
+<img src="@Model.ImagenMascota" style="max-width: 400px; height: auto; " />
+ </div>
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdMascota" />
             <div class="form-group">
@@ -38,6 +41,12 @@
                 <label asp-for="IDestadoMascota" class="control-label"></label>
                 <select asp-for="IDestadoMascota" class="form-control" asp-items="ViewBag.IDestadoMascota"></select>
                 <span asp-validation-for="IDestadoMascota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Imagen" class="control-label"></label>
+                <input name="ImagenMascota" id="ImagenMascota" class="form-control" type="file" />
+                <input asp-for="Imagen" class="form-control" />
+
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

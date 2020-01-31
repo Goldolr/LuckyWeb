@@ -3,6 +3,7 @@
     "",
     "\\LuckyWeb",
     "\\LuckyWeb\\Context",
+    "\\LuckyWeb\\Controllers",
     "\\LuckyWeb\\Models",
     "\\LuckyWeb\\Views",
     "\\LuckyWeb\\Views\\Entrevistas",

@@ -384,11 +384,6 @@ D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Esteriliza
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Esterilizados\Details.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Esterilizados\Edit.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Esterilizados\Index.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Create.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Delete.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Details.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Edit.cshtml.g.cs
-D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Index.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Razas\Create.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Razas\Delete.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Razas\Details.cshtml.g.cs
@@ -399,3 +394,8 @@ D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevista
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Details.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Edit.cshtml.g.cs
 D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Entrevistas\Index.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Create.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Delete.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Details.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Edit.cshtml.g.cs
+D:\Repositorios\LuckyWeb\LuckyWeb\obj\Debug\netcoreapp2.2\Razor\Views\Mascotas\Index.cshtml.g.cs

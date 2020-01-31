@@ -10,6 +10,8 @@ namespace LuckyWeb.Models
     [Table("tbl_Mascota")]
     public class Mascota
     {
+        [NotMapped]
+        public String ImagenMascota { get; set; }
         [Key]
         public Guid IdMascota { get; set; }
         [Display(Name = "Nombre")]
@@ -58,6 +60,6 @@ namespace LuckyWeb.Models
         //------------End------------//
 
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public int Identificador { get; set; }
+        public String Imagen{ get; set; }
     }
 }

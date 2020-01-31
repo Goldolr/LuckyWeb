@@ -5,100 +5,63 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<body style="background-color:wheat">
-    <h1 align="center">Mascotas</h1>
-    @if (User.IsInRole("Administrador") || User.IsInRole("Supervisor"))
-    {
-        <p>
-            <a class="btn btn-outline-info btn-floating" asp-action="Create">Agregar nueva mascota </a>
-        </p>
-    }
+<h1>Index</h1>
 
-    @*--------------------Add Mascota search method--------------------*@
-    <form action="@Url.Action("Index","NombreMascota")" , method="get">
-        <div class="row">
-            <div class="col-md-3"> @Html.TextBox("NombreMascota", null, new { placeholder = "Busca tu perrito", @class = "form-control" })</div>
-            <div class="col-md-3">
-                <button type="submit" class="btn btn-success" style="margin-left:25px">Buscar</button>
-            </div>
-        </div>
-    </form>
-    @*--------------------End of method--------------------*@
-    <div class="table-responsive-sm">
-        <table class="table">
-            <thead thead class="thead-dark">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.NombreMascota)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.EdadMascota)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FK_RazaMascota)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FK_EsterilizadoMascota)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FK_EstadoMascotaMascota)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NombreMascota)
-                        </td>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EdadMascota)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FK_RazaMascota.RazaMascota)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FK_EsterilizadoMascota.EstadoEsterilizado)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FK_EstadoMascotaMascota.Aprobacion)
-                        </td>
-                        <td>
-                            @if (User.IsInRole("Administrador") || User.IsInRole("Supervisor"))
-                            {
-                                <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.IdMascota">Editar</a>
-                                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdMascota">Detalles</a>
-
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                                    Eliminar
-                                </button>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <h5 style="color:black">Seguro que desea eliminar este registro</h5>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                <form asp-controller="Mascotas" asp-action="DeleteConfirmed" asp-route-id="@item.IdMascota">
-                                                    <button type="submit" class="btn btn-danger">Si</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <a class="btn btn-primary" asp-action="Details" asp-route-id="@item.IdMascota">Detalles</a>
-                            }
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</body>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreMascota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EdadMascota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_RazaMascota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_EsterilizadoMascota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_EstadoMascotaMascota)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreMascota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EdadMascota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_RazaMascota.IDraza)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_EsterilizadoMascota.IDesterilizad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_EstadoMascotaMascota.IDestadoMascota)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Imagen)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMascota">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdMascota">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMascota">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -14,7 +14,7 @@ namespace LuckyWeb.Models
         public int IDagenda { get; set; }
         [Display(Name ="Cita")]
         [Required(ErrorMessage = "Este campo es obligatorio")]
-        [Range(typeof(DateTime),"01/01/2020","01/01/2040")]
+        //[Range(typeof(DateTime), "01/01/2000", "01/01/2040")]
         public DateTime FechaAgenda { get; set; }
         [ForeignKey("FK_UserAgenda")]
         [Display(Name = "Adoptante")]

@@ -157,6 +157,8 @@ namespace LuckyWeb.Migrations
 
                     b.Property<Guid>("IDraza");
 
+                    b.Property<string>("Imagen");
+
                     b.Property<string>("NombreMascota")
                         .IsRequired();
 

@@ -7,27 +7,26 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LuckyWeb.Context;
 using LuckyWeb.Models;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace LuckyWeb.Controllers
 {
     public class MascotasController : Controller
     {
         private readonly MascotasContext _context;
+        private IHostingEnvironment _env;
 
-        public MascotasController(MascotasContext context)
+        public MascotasController(MascotasContext context, IHostingEnvironment env)
         {
             _context = context;
+            _env = env;
         }
 
         // GET: Mascotas
-        public async Task<IActionResult> Index(string NombreMascota)
+        public async Task<IActionResult> Index()
         {
-            if (!String.IsNullOrEmpty(NombreMascota))
-            {
-                var busqueda = _context.Mascotas.Where(_context => _context.NombreMascota.Contains(NombreMascota))
-                    .Include(m => m.FK_EstadoMascotaMascota).Include(m => m.FK_EsterilizadoMascota).Include(m => m.FK_RazaMascota);
-                return View(busqueda);
-            }
             var mascotasContext = _context.Mascotas.Include(m => m.FK_EstadoMascotaMascota).Include(m => m.FK_EsterilizadoMascota).Include(m => m.FK_RazaMascota);
             return View(await mascotasContext.ToListAsync());
         }
@@ -49,16 +48,16 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-
+            mascota.ImagenMascota =DescargarImagen(mascota.Imagen);
             return View(mascota);
         }
 
         // GET: Mascotas/Create
         public IActionResult Create()
         {
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion");
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado");
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota");
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota");
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad");
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza");
             return View();
         }
 
@@ -67,18 +66,19 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdMascota,NombreMascota,EdadMascota,IDraza,IDesterilizado,IDestadoMascota")] Mascota mascota)
+        public async Task<IActionResult> Create([Bind("IdMascota,NombreMascota,EdadMascota,IDraza,IDesterilizado,IDestadoMascota,Imagen")] Mascota mascota, IFormFile ImagenMascota)
         {
             if (ModelState.IsValid)
             {
+                mascota.Imagen = await GuardarArchivo(ImagenMascota);
                 mascota.IdMascota = Guid.NewGuid();
                 _context.Add(mascota);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion", mascota.IDestadoMascota);
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado", mascota.IDesterilizado);
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota", mascota.IDraza);
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
             return View(mascota);
         }
 
@@ -95,9 +95,10 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion", mascota.IDestadoMascota);
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado", mascota.IDesterilizado);
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota", mascota.IDraza);
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
+            mascota.ImagenMascota = DescargarImagen(mascota.Imagen);
             return View(mascota);
         }
 
@@ -106,7 +107,7 @@ namespace LuckyWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("IdMascota,NombreMascota,EdadMascota,IDraza,IDesterilizado,IDestadoMascota")] Mascota mascota)
+        public async Task<IActionResult> Edit(Guid id, [Bind("IdMascota,NombreMascota,EdadMascota,IDraza,IDesterilizado,IDestadoMascota,Imagen")] Mascota mascota, IFormFile ImagenMascota)
         {
             if (id != mascota.IdMascota)
             {
@@ -117,6 +118,7 @@ namespace LuckyWeb.Controllers
             {
                 try
                 {
+                    mascota.Imagen = await GuardarArchivo(ImagenMascota, mascota.Imagen);
                     _context.Update(mascota);
                     await _context.SaveChangesAsync();
                 }
@@ -133,9 +135,10 @@ namespace LuckyWeb.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "Aprobacion", mascota.IDestadoMascota);
-            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "EstadoEsterilizado", mascota.IDesterilizado);
-            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "RazaMascota", mascota.IDraza);
+            ViewData["IDestadoMascota"] = new SelectList(_context.EstadoMascotas, "IDestadoMascota", "IDestadoMascota", mascota.IDestadoMascota);
+            ViewData["IDesterilizado"] = new SelectList(_context.Esterilizados, "IDesterilizad", "IDesterilizad", mascota.IDesterilizado);
+            ViewData["IDraza"] = new SelectList(_context.Razas, "IDraza", "IDraza", mascota.IDraza);
+            mascota.ImagenMascota = DescargarImagen(mascota.Imagen);
             return View(mascota);
         }
 
@@ -156,7 +159,7 @@ namespace LuckyWeb.Controllers
             {
                 return NotFound();
             }
-
+            mascota.ImagenMascota = DescargarImagen(mascota.Imagen);
             return View(mascota);
         }
 
@@ -175,5 +178,32 @@ namespace LuckyWeb.Controllers
         {
             return _context.Mascotas.Any(e => e.IdMascota == id);
         }
+
+        //---------------------Metodo guardar imagen---------------------//
+        async Task<string> GuardarArchivo(IFormFile imagen, string archivo = "")
+        {
+            if (imagen == null || imagen.Length == 0)
+                return archivo;
+            if (string.IsNullOrWhiteSpace(archivo))
+                archivo = $"{Guid.NewGuid()}{Path.GetExtension(imagen.FileName)}";
+            var ruta = Path.Combine(_env.WebRootPath, "Mascotas", archivo);
+            using (var stream = new FileStream(ruta, FileMode.Create))
+            {
+                await imagen.CopyToAsync(stream);
+            }
+            return archivo;
+        }
+        //---------------------Fin metodo---------------------//
+
+        //---------------------Metodo descargar imagen---------------------//
+        private string DescargarImagen(string imagen)
+        {
+            if (imagen == null)
+                return string.Empty;
+            var ruta = Path.Combine(_env.WebRootPath, "Mascotas", imagen);
+            var bytes = System.IO.File.ReadAllBytes(ruta);
+            return "data:image/png;base64," + Convert.ToBase64String(bytes);
+        }
+        //---------------------Fin metodo---------------------//
     }
 }
