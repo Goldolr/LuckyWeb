@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace LuckyWeb.Controllers
 {
-    [Authorize(Roles = "Administrador")]
+    //[Authorize(Roles = "Administrador")]
     public class UsersController : Controller
     {
         private readonly MascotasContext _context;
@@ -22,8 +22,13 @@ namespace LuckyWeb.Controllers
         }
 
         // GET: Users
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Cedula)
         {
+            if (!String.IsNullOrEmpty(Cedula))
+            {
+                var busqueda = _context.Users.Where(_context => _context.Cedula.Contains(Cedula));
+                return View(busqueda);
+            }
             return View(await _context.Users.ToListAsync());
         }
 
@@ -138,7 +143,7 @@ namespace LuckyWeb.Controllers
         }
 
         // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
+        //[HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {

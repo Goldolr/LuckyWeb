@@ -2,13 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\LuckyWeb",
-    "\\LuckyWeb\\Context",
-    "\\LuckyWeb\\Controllers",
-    "\\LuckyWeb\\Models",
+    "\\LuckyWeb\\Areas",
+    "\\LuckyWeb\\Areas\\Identity",
+    "\\LuckyWeb\\Areas\\Identity\\Pages",
+    "\\LuckyWeb\\Areas\\Identity\\Pages\\Account",
     "\\LuckyWeb\\Views",
     "\\LuckyWeb\\Views\\Entrevistas",
-    "\\LuckyWeb\\Views\\Preguntas"
+    "\\LuckyWeb\\Views\\Mascotas",
+    "\\LuckyWeb\\Views\\Preguntas",
+    "\\LuckyWeb\\Views\\Users"
   ],
-  "SelectedNode": "\\LuckyWeb.sln",
+  "SelectedNode": "\\LuckyWeb\\Views\\Users\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

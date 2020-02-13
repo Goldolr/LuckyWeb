@@ -1,56 +1,62 @@
 ﻿@model LuckyWeb.Models.User
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<div class="card" style="margin:auto;width:600px;">
+    <h1 class="card-header text-center text-white py-4" style="background-color:black;">
+        <strong>Ingresar Usuario</strong>
+    </h1>
 
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
-                <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Apellido" class="control-label"></label>
-                <input asp-for="Apellido" class="form-control" />
-                <span asp-validation-for="Apellido" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cedula" class="control-label"></label>
-                <input asp-for="Cedula" class="form-control" />
-                <span asp-validation-for="Cedula" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Correo" class="control-label"></label>
-                <input asp-for="Correo" class="form-control" />
-                <span asp-validation-for="Correo" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-                    <label asp-for="Contrasenia" class="control-label"></label>
-                    <input asp-for="Contrasenia" class="form-control" />
-                    <span asp-validation-for="Contrasenia" class="text-danger"></span>
-                </div>*@
-            <div class="form-group">
-                <label asp-for="FechaNacimiento" class="control-label"></label>
-                <input asp-for="FechaNacimiento" class="form-control" />
-                <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <!--Card content-->
+    <div class="card-body px-lg-5 pt-0 cloudy-knoxville-gradient">
+
+        <hr />
+        @*<div class="row">*@
+        @*<div class="col-md-4">*@
+        <!-- Form -->
+    <form asp-action="Create" class="text-center" style="color: #757575;">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="md-form" style="margin:auto;width:300px;">
+            <label asp-for="Nombre" class="control-label"></label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="md-form" style="margin:auto;width:300px;">
+            <label asp-for="Apellido" class="control-label"></label>
+            <input asp-for="Apellido" class="form-control" />
+            <span asp-validation-for="Apellido" class="text-danger"></span>
+        </div>
+        <div class="md-form" style="margin:auto;width:300px;">
+            <label asp-for="Cedula" class="control-label"></label>
+            <input asp-for="Cedula" class="form-control" />
+            <span asp-validation-for="Cedula" class="text-danger"></span>
+        </div>
+        <div class="md-form" style="margin:auto;width:300px;">
+            <label asp-for="Correo" class="control-label"></label>
+            <input asp-for="Correo" class="form-control" />
+            <span asp-validation-for="Correo" class="text-danger"></span>
+        </div>
+        @*<div class="form-group">
+            <label asp-for="Contrasenia" class="control-label"></label>
+            <input asp-for="Contrasenia" class="form-control" />
+            <span asp-validation-for="Contrasenia" class="text-danger"></span>
+        </div>*@
+        <div class="md-form" style="margin:auto;width:300px;">
+            <span>Fecha de nacimiento</span>
+                @*<label asp-for="FechaNacimiento" class="control-label"></label>*@
+            <input asp-for="FechaNacimiento" class="form-control" />
+            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+        </div>
+        <button class="btn blue-gradient" style="margin:auto;width:300px;" type="submit"><i class="fas fa-user ml-2" aria-hidden="true"></i> Ingresar</button>
+    </form>
+
+        <div>
+            <a asp-action="Index">Atrás</a>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
