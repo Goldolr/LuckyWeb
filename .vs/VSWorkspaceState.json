@@ -6,12 +6,13 @@
     "\\LuckyWeb\\Areas\\Identity",
     "\\LuckyWeb\\Areas\\Identity\\Pages",
     "\\LuckyWeb\\Areas\\Identity\\Pages\\Account",
+    "\\LuckyWeb\\Controllers",
     "\\LuckyWeb\\Views",
     "\\LuckyWeb\\Views\\Entrevistas",
     "\\LuckyWeb\\Views\\Mascotas",
     "\\LuckyWeb\\Views\\Preguntas",
     "\\LuckyWeb\\Views\\Users"
   ],
-  "SelectedNode": "\\LuckyWeb\\Views\\Users\\Index.cshtml",
+  "SelectedNode": "\\LuckyWeb\\Controllers\\MascotasController.cs",
   "PreviewInSolutionExplorer": false
 }
